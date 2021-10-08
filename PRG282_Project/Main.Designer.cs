@@ -262,6 +262,7 @@ namespace PRG282_Project
             this.button9.TabIndex = 3;
             this.button9.Text = "Manage Courses";
             this.button9.UseVisualStyleBackColor = false;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // button8
             // 

@@ -10,18 +10,11 @@ using System.Windows.Forms;
 
 namespace PRG282_Project
 {
-    public partial class Main : Form
+    public partial class Form1 : Form
     {
-        public Main()
+        public Form1()
         {
             InitializeComponent();
-        }
-
-        private void button9_Click(object sender, EventArgs e)
-        {
-            Form1 frm = new Form1();
-
-            frm.Show();
         }
     }
 }
