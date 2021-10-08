@@ -97,7 +97,7 @@ namespace PRG282_Project
             this.groupBox3.Size = new System.Drawing.Size(224, 413);
             this.groupBox3.TabIndex = 8;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "groupBox3";
+            this.groupBox3.Text = "Student Info";
             // 
             // cbxNewStudent
             // 
@@ -124,9 +124,9 @@ namespace PRG282_Project
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(6, 232);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(35, 13);
+            this.label7.Size = new System.Drawing.Size(45, 13);
             this.label7.TabIndex = 15;
-            this.label7.Text = "label7";
+            this.label7.Text = "Courses";
             // 
             // checkedListBox1
             // 
@@ -284,6 +284,7 @@ namespace PRG282_Project
             this.button7.TabIndex = 1;
             this.button7.Text = "Delete Course For Student";
             this.button7.UseVisualStyleBackColor = false;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // button6
             // 
@@ -310,7 +311,7 @@ namespace PRG282_Project
             this.groupBox1.Size = new System.Drawing.Size(399, 165);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
+            this.groupBox1.Text = "Course";
             // 
             // button13
             // 
