@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace PRG282_Project
 {
-    public partial class Form1 : Form
+    public partial class Courses : Form
     {
-        public Form1()
+        public Courses()
         {
             InitializeComponent();
         }
