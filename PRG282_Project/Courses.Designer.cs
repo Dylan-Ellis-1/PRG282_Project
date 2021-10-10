@@ -1,7 +1,7 @@
 ﻿
 namespace PRG282_Project
 {
-    partial class Form1
+    partial class Courses
     {
         /// <summary>
         /// Required designer variable.
