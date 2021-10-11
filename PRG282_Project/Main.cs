@@ -101,14 +101,24 @@ namespace PRG282_Project
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            List<string> LCourses = new List<string>();
+            string date = dtpDOB.Value.Day.ToString() + "-" + dtpDOB.Value.Month.ToString() + "-" + dtpDOB.Value.Year.ToString();
+
+            for (int k = 0; k < clbCourses.Items.Count; k++)
+            {
+                if (clbCourses.GetItemChecked(k) == true)
+                {
+                    LCourses.Add(clbCourses.Items[k].ToString());
+                }
+            }
             if (NewStudent == false)
             {
-                handler.updateStudent(new Student(tbxSNumber.Text, tbxName.Text, cmbGender.SelectedItem.ToString(), tbxPhone.Text, tbxAddress.Text, tbxImgPath.Text, dtpDOB.Value));
+                handler.updateStudent(new Student(tbxSNumber.Text, tbxName.Text, cmbGender.SelectedItem.ToString(), tbxPhone.Text, tbxAddress.Text, tbxImgPath.Text, date));
             }
             else
             if (NewStudent == true)
             {
-                handler.addStudent(new Student(tbxSNumber.Text, tbxName.Text, cmbGender.SelectedItem.ToString(), tbxPhone.Text, tbxAddress.Text, tbxImgPath.Text, dtpDOB.Value));
+                handler.addStudent(new Student(tbxSNumber.Text, tbxName.Text, cmbGender.SelectedItem.ToString(), tbxPhone.Text, tbxAddress.Text, tbxImgPath.Text, date));
             }
         }
     }
