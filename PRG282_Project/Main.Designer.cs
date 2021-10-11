@@ -31,7 +31,6 @@ namespace PRG282_Project
         {
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.tbxAddress = new System.Windows.Forms.TextBox();
             this.cbxNewStudent = new System.Windows.Forms.CheckBox();
             this.button5 = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
@@ -66,7 +65,6 @@ namespace PRG282_Project
             this.button1 = new System.Windows.Forms.Button();
             this.pbxStudent = new System.Windows.Forms.PictureBox();
             this.dgvStudent = new System.Windows.Forms.DataGridView();
-            this.label8 = new System.Windows.Forms.Label();
             this.tbxAddress = new System.Windows.Forms.TextBox();
             this.groupBox3.SuspendLayout();
             this.gbxControl.SuspendLayout();
@@ -488,7 +486,6 @@ namespace PRG282_Project
             this.Controls.Add(this.gbxViewData);
             this.Name = "Main";
             this.Text = "Main";
-            this.Load += new System.EventHandler(this.Main_Load);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.gbxControl.ResumeLayout(false);
