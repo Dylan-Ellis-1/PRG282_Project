@@ -14,7 +14,7 @@ CREATE Table Students
 	StudentNumber varchar,
 	NameSurname varchar,
 	Gender varchar,
-	StudentDOB	date,
+	StudentDOB varchar,
 	Phone varchar,
 	Address_ varchar,
 	ImgPath varchar,
