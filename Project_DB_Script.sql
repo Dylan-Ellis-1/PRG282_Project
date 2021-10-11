@@ -1,3 +1,5 @@
+USE master
+GO
 
 CREATE DATABASE [Project]
  CONTAINMENT = NONE
@@ -5,33 +7,34 @@ CREATE DATABASE [Project]
 ( NAME = N'Project', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL15.MSSQLSERVER\MSSQL\DATA\Project.mdf' , SIZE = 8192KB , FILEGROWTH = 65536KB )
  LOG ON 
 ( NAME = N'Project_log', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL15.MSSQLSERVER\MSSQL\DATA\Project_log.ldf' , SIZE = 8192KB , FILEGROWTH = 65536KB )
-GO;
+GO
+
 Use Project
-Go;
+Go
 
 CREATE Table Students
 (
-	StudentNumber varchar,
-	NameSurname varchar,
-	Gender varchar,
-	StudentDOB varchar,
-	Phone varchar,
-	Address_ varchar,
-	ImgPath varchar,
+	StudentNumber varchar(10),
+	NameSurname varchar(80),
+	Gender varchar(10),
+	StudentDOB varchar(20),
+	Phone varchar(10),
+	Address_ varchar(100),
+	ImgPath varchar(100),
 	Primary Key (StudentNumber)
 );
 CREATE TABLE Courses
 (
-	ModCode varchar,
-	ModName varchar,
-	ModDesc varchar,
-	Link varchar,
+	ModCode varchar(10),
+	ModName varchar(50),
+	ModDesc varchar(200),
+	Link varchar(200),
 	PRIMARY KEY (ModCode)
 );
 CREATE TABLE StudentCourses
 (
-	StudentNumber varchar FOREIGN KEY REFERENCES Students(StudentNumber),
-	ModCode varchar FOREIGN KEY REFERENCES Courses(ModCode),
+	StudentNumber varchar(10) FOREIGN KEY REFERENCES Students(StudentNumber),
+	ModCode varchar(10) FOREIGN KEY REFERENCES Courses(ModCode),
 	PRIMARY KEY (StudentNumber, Modcode)
 );
 
@@ -69,19 +72,19 @@ Insert Into Courses(ModCode, ModName, ModDesc, Link) VALUES
 Insert Into Courses(ModCode, ModName, ModDesc, Link) VALUES 
 ('WPR281', 'Web-Programming 281', 'Learning of HTML scripts and adding them via Javascripts.','https://www.youtube.com/watch?v=Gd0RBdFRvF0')
 Insert Into Courses(ModCode, ModName, ModDesc, Link) VALUES 
-('DBD281', 'Database Development 282', 'Learning of SQL server and database development.','https://www.sqlshack.com/learn-sql-create-database-create-table/')
+('DBD281', 'Database Development 281', 'Learning of SQL server and database development.','https://www.sqlshack.com/learn-sql-create-database-create-table/')
 
 Insert Into StudentCourses(StudentNumber,ModCode) VALUES ('50000', 'PRG281');
 Insert Into StudentCourses(StudentNumber,ModCode) VALUES ('50001', 'PRG282');
 Insert Into StudentCourses(StudentNumber,ModCode) VALUES ('50002', 'WPR281');
 Insert Into StudentCourses(StudentNumber,ModCode) VALUES ('50003', 'DBD281');
 Insert Into StudentCourses(StudentNumber,ModCode) VALUES ('50004', 'PRG281');
-Insert Into StudentCourses(StudentNumber,ModCode) VALUES ('50005', 'PRG281');
+Insert Into StudentCourses(StudentNumber,ModCode) VALUES ('50005', 'PRG282');
 Insert Into StudentCourses(StudentNumber,ModCode) VALUES ('50006', 'WPR281');
 Insert Into StudentCourses(StudentNumber,ModCode) VALUES ('50007', 'PRG281');
 Insert Into StudentCourses(StudentNumber,ModCode) VALUES ('50008', 'DBD281');
 Insert Into StudentCourses(StudentNumber,ModCode) VALUES ('50009', 'PRG281');
-Insert Into StudentCourses(StudentNumber,ModCode) VALUES ('50011', 'PRG281');
+Insert Into StudentCourses(StudentNumber,ModCode) VALUES ('50011', 'PRG282');
 Insert Into StudentCourses(StudentNumber,ModCode) VALUES ('50010', 'WPR281');
 Insert Into StudentCourses(StudentNumber,ModCode) VALUES ('50012', 'PRG281');
 Insert Into StudentCourses(StudentNumber,ModCode) VALUES ('50001', 'PRG281');
