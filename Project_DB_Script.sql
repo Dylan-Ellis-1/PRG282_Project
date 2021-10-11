@@ -13,6 +13,7 @@ CREATE Table Students
 (
 	StudentNumber varchar,
 	NameSurname varchar,
+	Gender varchar,
 	StudentDOB	date,
 	Phone varchar,
 	Address_ varchar,
@@ -34,32 +35,32 @@ CREATE TABLE StudentCourses
 	PRIMARY KEY (StudentNumber, Modcode)
 );
 
-Insert Into Students(StudentNumber, NameSurname, StudentDOB, Phone, Address_, ImgPath) Values
-('50000', 'Adam Adams','09-10-2000' , '0711112222','10 Plat Str, Johannesburg','Adam Adams.png');
-Insert Into Students(StudentNumber, NameSurname, StudentDOB, Phone, Address_, ImgPath) Values
-('50001', 'Bram Adams','09-11-2000' , '0711113333','1 Easter Road, Pretoria','BramAdams.png')
-Insert Into Students(StudentNumber, NameSurname, StudentDOB, Phone, Address_, ImgPath) Values
-('50002', 'Tam Binks','19-10-2000' , '0711112322','10 Aler Lane, Alexandria','TamBinks.png')
-Insert Into Students(StudentNumber, NameSurname, StudentDOB, Phone, Address_, ImgPath) Values
-('50003', 'Cam Peggs','09-12-1999' , '0711112233','4 Epson Road, Alexandria','CamPeggs.png')
-Insert Into Students(StudentNumber, NameSurname, StudentDOB, Phone, Address_, ImgPath) Values
-('50004', 'Lily Hicks','10-03-2001' , '0711212222','10 Process Lane, Harties','LilyHicks.png')
-Insert Into Students(StudentNumber, NameSurname, StudentDOB, Phone, Address_, ImgPath) Values
-('50005', 'Rick Astley','08-11-1998' , '0711112222','17 Berg Lane, Brits','RickAstley.png')
-Insert Into Students(StudentNumber, NameSurname, StudentDOB, Phone, Address_, ImgPath) Values
-('50006', 'Jeff JustJeff','15-07-2000' , '0711112222','10 Alder Lane, BitTown','JeffJustJeff.png')
-Insert Into Students(StudentNumber, NameSurname, StudentDOB, Phone, Address_, ImgPath) Values
-('50007', 'Elly Olsen','05-11-2000' , '0711112222','9 Aler Lane, Alexandria','EllyOlsen.png')
-Insert Into Students(StudentNumber, NameSurname, StudentDOB, Phone, Address_, ImgPath) Values
-('50008', 'Peter Quill','12-05-2000' , '0711112222','1 Link Street, Kosmos','PeterQuill.png')
-Insert Into Students(StudentNumber, NameSurname, StudentDOB, Phone, Address_, ImgPath) Values
-('50009', 'Alex Mason','27-08-2000' , '0711112222','2 Alder Lane, Mooinooi','AlexMason.png')
-Insert Into Students(StudentNumber, NameSurname, StudentDOB, Phone, Address_, ImgPath) Values
-('50010', 'Max Black','09-08-2000' , '0711112222','10 Kraai Street, Mooinooi','MaxBlack.png')
-Insert Into Students(StudentNumber, NameSurname, StudentDOB, Phone, Address_, ImgPath) Values
-('50011', 'Sera Lynn','09-01-2000' , '0711112222','10 Vink Street, Pretoria','SeraLynn.png')
-Insert Into Students(StudentNumber, NameSurname, StudentDOB, Phone, Address_, ImgPath) Values
-('50012', 'Bojack Horseman','09-10-1999' , '0711112222','8 Sims Street, Pretoria','BojackHorseman.png')
+Insert Into Students(StudentNumber, NameSurname, StudentDOB, Phone, Address_, ImgPath, Gender) Values
+('50000', 'Adam Adams','09-10-2000' , '0711112222','10 Plat Str, Johannesburg','Adam Adams.png', 'Male');
+Insert Into Students(StudentNumber, NameSurname, StudentDOB, Phone, Address_, ImgPath, Gender) Values
+('50001', 'Bram Adams','09-11-2000' , '0711113333','1 Easter Road, Pretoria','BramAdams.png', 'Male')
+Insert Into Students(StudentNumber, NameSurname, StudentDOB, Phone, Address_, ImgPath, Gender) Values
+('50002', 'Tam Binks','19-10-2000' , '0711112322','10 Aler Lane, Alexandria','TamBinks.png', 'Female')
+Insert Into Students(StudentNumber, NameSurname, StudentDOB, Phone, Address_, ImgPath, Gender) Values
+('50003', 'Cam Peggs','09-12-1999' , '0711112233','4 Epson Road, Alexandria','CamPeggs.png', 'Female')
+Insert Into Students(StudentNumber, NameSurname, StudentDOB, Phone, Address_, ImgPath, Gender) Values
+('50004', 'Lily Hicks','10-03-2001' , '0711212222','10 Process Lane, Harties','LilyHicks.png', 'Female')
+Insert Into Students(StudentNumber, NameSurname, StudentDOB, Phone, Address_, ImgPath, Gender) Values
+('50005', 'Rick Astley','08-11-1998' , '0711112222','17 Berg Lane, Brits','RickAstley.png', 'Male')
+Insert Into Students(StudentNumber, NameSurname, StudentDOB, Phone, Address_, ImgPath, Gender) Values
+('50006', 'Jeff JustJeff','15-07-2000' , '0711112222','10 Alder Lane, BitTown','JeffJustJeff.png', 'Male')
+Insert Into Students(StudentNumber, NameSurname, StudentDOB, Phone, Address_, ImgPath, Gender) Values
+('50007', 'Elly Olsen','05-11-2000' , '0711112222','9 Aler Lane, Alexandria','EllyOlsen.png', 'Female')
+Insert Into Students(StudentNumber, NameSurname, StudentDOB, Phone, Address_, ImgPath, Gender) Values
+('50008', 'Peter Quill','12-05-2000' , '0711112222','1 Link Street, Kosmos','PeterQuill.png', 'Male')
+Insert Into Students(StudentNumber, NameSurname, StudentDOB, Phone, Address_, ImgPath, Gender) Values
+('50009', 'Alex Mason','27-08-2000' , '0711112222','2 Alder Lane, Mooinooi','AlexMason.png', 'Male')
+Insert Into Students(StudentNumber, NameSurname, StudentDOB, Phone, Address_, ImgPath, Gender) Values
+('50010', 'Max Black','09-08-2000' , '0711112222','10 Kraai Street, Mooinooi','MaxBlack.png', 'Female')
+Insert Into Students(StudentNumber, NameSurname, StudentDOB, Phone, Address_, ImgPath, Gender) Values
+('50011', 'Sera Lynn','09-01-2000' , '0711112222','10 Vink Street, Pretoria','SeraLynn.png', 'Female')
+Insert Into Students(StudentNumber, NameSurname, StudentDOB, Phone, Address_, ImgPath, Gender) Values
+('50012', 'Bojack Horseman','09-10-1999' , '0711112222','8 Sims Street, Pretoria','BojackHorseman.png', 'Male')
 
 Insert Into Courses(ModCode, ModName, ModDesc, Link) VALUES 
 ('PRG282', 'Programming 282', 'Learning of Object Relation Programming and data usage in programs.','https://www.youtube.com/watch?v=V9r-Gp3uNCE')
