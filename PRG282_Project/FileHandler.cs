@@ -15,10 +15,19 @@ namespace PRG282_Project
         public bool LoggedIn = false;
         public string UName = "";
         public string UPass = "";
+
+        public void ConfirmFile() 
+        {
+            if (File.Exists("LoginDetails.txt") == false)
+            {
+                File.Create("LoginDetails.txt");
+            }
+        }
         public string[,] ReadUsers()
         {
+            ConfirmFile();
             List<string> data = new List<string>();
-            data = File.ReadAllLines("LoginDetails.txt").ToList();
+            data = File.ReadAllLines("LoginDetails.txt").ToList(); //Come back to
 
             string[] Temp = new string[2];
             int lim = data.Count() - 1;
@@ -32,8 +41,27 @@ namespace PRG282_Project
             return UserDetails;
         }
 
-        public void AddUser(string NUserName, string NPassword)
+        public int AddUser(string NUserName, string NPassword, string CPassword)
         {
+            int ErrorT = 0;
+            if (NUserName.Contains(" ")||NUserName.Contains(","))
+            {
+                ErrorT = 1;
+                return ErrorT;
+            }
+            
+            if (NPassword.Contains(" ")||NPassword.Contains(","))
+            {
+                ErrorT = 2;
+                return ErrorT;
+            }
+
+            if (NPassword != CPassword)
+            {
+                ErrorT = 3;
+                return ErrorT;
+            }
+            
             string[,] Users = ReadUsers();
             bool Found = false;
 
@@ -47,15 +75,14 @@ namespace PRG282_Project
             }
             if (Found == true)
             {
-                OutputString = "User Already Exists, create new Username";
+                ErrorT = 4;
+                return ErrorT;
             }
             else
             {
                 UserDetails[UCount, 0] = NUserName;
                 UserDetails[UCount, 1] = NPassword;
 
-                File.Delete("UserDetails.txt");
-                File.Create("UserDetails.txt");
                 List<string> lines = new List<string>();
                 for (int i = 0; i < UserDetails.Length; i++)
                 {
@@ -63,12 +90,13 @@ namespace PRG282_Project
                 }
                 File.WriteAllLines("UserDetails.txt", lines);
                 addedUser = true;
-                OutputString = "User Added Successfully";
             }
+            return ErrorT;
         }
 
-        public void LoginF(string NUserName, string NPassword)
+        public int LoginF(string NUserName, string NPassword)
         {
+            int ErrorN = 0;
             string[,] Users = ReadUsers();
             int Index = -1;
 
@@ -82,19 +110,15 @@ namespace PRG282_Project
             }
             if (Index < 0)
             {
-                OutputString = "User was not found, Add new User or Revise Username entered";
+                ErrorN= 1;
             }
             else
             if (Users[Index, 1] != NPassword)
             {
-                OutputString = "The Wrong Password was given for the related UserName";
+                ErrorN =2;
             }
-            else
-            {
-                UName = Users[Index, 0];
-                UPass = Users[Index, 1];
-                LoggedIn = true;
-            }
+            return ErrorN;
+            
         }
     }
 }

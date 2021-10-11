@@ -18,6 +18,7 @@ namespace PRG282_Project
         }
 
         public bool NewUser = false;
+        FileHandler handler = new FileHandler();
 
         private void Login_Load(object sender, EventArgs e)
         {
@@ -53,15 +54,76 @@ namespace PRG282_Project
 
             frmMain.Show();
 
+            string NameEn = tbxUsername.Text;
+            string PassEn = tbxPassword.Text;
+            string PassConEn = tbxConPassword.Text;
+
             if (NewUser == true)
             {
-                string NameEn = tbxUsername.Text;
-                string PassEn = tbxPassword.Text;
-                string PassConEn = tbxConPassword.Text;
-
-                if (NameEn.Contains(" ") || NameEn.Contains(",") || NameEn.Length == 0)
+                int Num = handler.AddUser(NameEn, PassEn, PassConEn);
+                switch(Num)
                 {
-                    lblOutput.Text = "That is the wrong answer, you will perish mortal!";
+                    case 1:
+                        {
+                            lblOutput.Text = "Forbidden Characters were used, choose another username without space or a comma.";
+                            tbxUsername.Focus();
+                            break;
+                        };
+                    case 2:
+                        {
+                            lblOutput.Text = "Forbidden Characters were used, choose another password without space or a comma.";
+                            tbxPassword.Focus();
+                            break;
+                        };
+                    case 3:
+                        {
+                            lblOutput.Text = "Passwords do not match";
+                            tbxConPassword.Focus();
+                            break;
+                        }
+                    case 4:
+                        {
+                            lblOutput.Text = "User Already Excists, Pick a new Username.";
+                            tbxUsername.Focus();
+                            break;
+                        }
+                    case 0:
+                        {
+                            tbxUsername.Text = NameEn;
+                            tbxPassword.Text = PassEn;
+                            NewUser = false;
+                            cbxNUser.Checked = false;
+                            break;
+                        }
+
+                }
+
+            }
+            else
+            if (NewUser == false)
+            {
+                int Num = handler.LoginF(NameEn, PassEn);
+                switch(Num)
+                {
+                    case 1:
+                        {
+                            lblOutput.Text = "User not found, consider making a new account";
+                            cbxNUser.Focus();
+                            break;
+                        }
+                    case 2:
+                        {
+                            lblOutput.Text = "Wrong password was given for the username.";
+                            tbxPassword.Focus();
+                            break;
+                        }
+                    case 0:
+                        {
+                            Main form = new Main();
+                            form.Show();
+                            break;
+                        }
+
                 }
             }
         }

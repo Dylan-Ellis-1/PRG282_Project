@@ -31,8 +31,9 @@ namespace PRG282_Project
         {
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.tbxAddress = new System.Windows.Forms.TextBox();
             this.cbxNewStudent = new System.Windows.Forms.CheckBox();
-            this.button5 = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.clbCourses = new System.Windows.Forms.CheckedListBox();
             this.cmbGender = new System.Windows.Forms.ComboBox();
@@ -48,28 +49,30 @@ namespace PRG282_Project
             this.label1 = new System.Windows.Forms.Label();
             this.tbxSNumber = new System.Windows.Forms.TextBox();
             this.gbxControl = new System.Windows.Forms.GroupBox();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
+            this.btnGoToCourses = new System.Windows.Forms.Button();
+            this.btnDelStudent = new System.Windows.Forms.Button();
+            this.btnDelCourse = new System.Windows.Forms.Button();
+            this.btnExit = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button13 = new System.Windows.Forms.Button();
-            this.button12 = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
+            this.btnNextC = new System.Windows.Forms.Button();
+            this.btnLastC = new System.Windows.Forms.Button();
+            this.btnPrevC = new System.Windows.Forms.Button();
+            this.btnFirstC = new System.Windows.Forms.Button();
             this.lvwCourses = new System.Windows.Forms.ListView();
-            this.gbxViewData = new System.Windows.Forms.GroupBox();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.gbxViewStudent = new System.Windows.Forms.GroupBox();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.tbxSearch = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.btnNextS = new System.Windows.Forms.Button();
+            this.btnPrevS = new System.Windows.Forms.Button();
+            this.btnLastS = new System.Windows.Forms.Button();
+            this.btnFirstS = new System.Windows.Forms.Button();
             this.pbxStudent = new System.Windows.Forms.PictureBox();
             this.dgvStudent = new System.Windows.Forms.DataGridView();
-            this.tbxAddress = new System.Windows.Forms.TextBox();
             this.groupBox3.SuspendLayout();
             this.gbxControl.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.gbxViewData.SuspendLayout();
+            this.gbxViewStudent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxStudent)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudent)).BeginInit();
             this.SuspendLayout();
@@ -80,7 +83,7 @@ namespace PRG282_Project
             this.groupBox3.Controls.Add(this.label8);
             this.groupBox3.Controls.Add(this.tbxAddress);
             this.groupBox3.Controls.Add(this.cbxNewStudent);
-            this.groupBox3.Controls.Add(this.button5);
+            this.groupBox3.Controls.Add(this.btnSave);
             this.groupBox3.Controls.Add(this.label7);
             this.groupBox3.Controls.Add(this.clbCourses);
             this.groupBox3.Controls.Add(this.cmbGender);
@@ -128,17 +131,17 @@ namespace PRG282_Project
             this.cbxNewStudent.TabIndex = 17;
             this.cbxNewStudent.Text = "New Student";
             this.cbxNewStudent.UseVisualStyleBackColor = true;
-            this.cbxNewStudent.CheckedChanged += new System.EventHandler(this.cbxNewStudent_CheckedChanged_1);
             // 
-            // button5
+            // btnSave
             // 
-            this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(50)))));
-            this.button5.Location = new System.Drawing.Point(64, 349);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(104, 48);
-            this.button5.TabIndex = 16;
-            this.button5.Text = "Save Changes";
-            this.button5.UseVisualStyleBackColor = false;
+            this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(50)))));
+            this.btnSave.Location = new System.Drawing.Point(64, 349);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(104, 48);
+            this.btnSave.TabIndex = 16;
+            this.btnSave.Text = "Save Changes";
+            this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // label7
             // 
@@ -261,10 +264,10 @@ namespace PRG282_Project
             // gbxControl
             // 
             this.gbxControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.gbxControl.Controls.Add(this.button9);
-            this.gbxControl.Controls.Add(this.button8);
-            this.gbxControl.Controls.Add(this.button7);
-            this.gbxControl.Controls.Add(this.button6);
+            this.gbxControl.Controls.Add(this.btnGoToCourses);
+            this.gbxControl.Controls.Add(this.btnDelStudent);
+            this.gbxControl.Controls.Add(this.btnDelCourse);
+            this.gbxControl.Controls.Add(this.btnExit);
             this.gbxControl.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.gbxControl.Location = new System.Drawing.Point(417, 260);
             this.gbxControl.Name = "gbxControl";
@@ -273,58 +276,60 @@ namespace PRG282_Project
             this.gbxControl.TabStop = false;
             this.gbxControl.Text = "Control Box";
             // 
-            // button9
+            // btnGoToCourses
             // 
-            this.button9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(50)))));
-            this.button9.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button9.Location = new System.Drawing.Point(238, 19);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(127, 34);
-            this.button9.TabIndex = 3;
-            this.button9.Text = "Manage Courses";
-            this.button9.UseVisualStyleBackColor = false;
-            this.button9.Click += new System.EventHandler(this.button9_Click);
+            this.btnGoToCourses.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(50)))));
+            this.btnGoToCourses.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnGoToCourses.Location = new System.Drawing.Point(238, 19);
+            this.btnGoToCourses.Name = "btnGoToCourses";
+            this.btnGoToCourses.Size = new System.Drawing.Size(127, 34);
+            this.btnGoToCourses.TabIndex = 3;
+            this.btnGoToCourses.Text = "Manage Courses";
+            this.btnGoToCourses.UseVisualStyleBackColor = false;
+            this.btnGoToCourses.Click += new System.EventHandler(this.button9_Click);
             // 
-            // button8
+            // btnDelStudent
             // 
-            this.button8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(50)))));
-            this.button8.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button8.Location = new System.Drawing.Point(6, 19);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(127, 34);
-            this.button8.TabIndex = 2;
-            this.button8.Text = "Delete Student";
-            this.button8.UseVisualStyleBackColor = false;
+            this.btnDelStudent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(50)))));
+            this.btnDelStudent.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnDelStudent.Location = new System.Drawing.Point(6, 19);
+            this.btnDelStudent.Name = "btnDelStudent";
+            this.btnDelStudent.Size = new System.Drawing.Size(127, 34);
+            this.btnDelStudent.TabIndex = 2;
+            this.btnDelStudent.Text = "Delete Student";
+            this.btnDelStudent.UseVisualStyleBackColor = false;
+            this.btnDelStudent.Click += new System.EventHandler(this.btnDelStudent_Click);
             // 
-            // button7
+            // btnDelCourse
             // 
-            this.button7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(50)))));
-            this.button7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button7.Location = new System.Drawing.Point(6, 68);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(127, 34);
-            this.button7.TabIndex = 1;
-            this.button7.Text = "Delete Course For Student";
-            this.button7.UseVisualStyleBackColor = false;
+            this.btnDelCourse.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(50)))));
+            this.btnDelCourse.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnDelCourse.Location = new System.Drawing.Point(6, 68);
+            this.btnDelCourse.Name = "btnDelCourse";
+            this.btnDelCourse.Size = new System.Drawing.Size(127, 34);
+            this.btnDelCourse.TabIndex = 1;
+            this.btnDelCourse.Text = "Delete Course For Student";
+            this.btnDelCourse.UseVisualStyleBackColor = false;
             // 
-            // button6
+            // btnExit
             // 
-            this.button6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button6.Location = new System.Drawing.Point(238, 115);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(127, 34);
-            this.button6.TabIndex = 0;
-            this.button6.Text = "Exit";
-            this.button6.UseVisualStyleBackColor = false;
+            this.btnExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnExit.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnExit.Location = new System.Drawing.Point(238, 115);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(127, 34);
+            this.btnExit.TabIndex = 0;
+            this.btnExit.Text = "Exit";
+            this.btnExit.UseVisualStyleBackColor = false;
+            this.btnExit.Click += new System.EventHandler(this.button6_Click);
             // 
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.groupBox1.Controls.Add(this.button13);
-            this.groupBox1.Controls.Add(this.button12);
-            this.groupBox1.Controls.Add(this.button11);
-            this.groupBox1.Controls.Add(this.button10);
+            this.groupBox1.Controls.Add(this.btnNextC);
+            this.groupBox1.Controls.Add(this.btnLastC);
+            this.groupBox1.Controls.Add(this.btnPrevC);
+            this.groupBox1.Controls.Add(this.btnFirstC);
             this.groupBox1.Controls.Add(this.lvwCourses);
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.groupBox1.Location = new System.Drawing.Point(12, 260);
@@ -334,45 +339,49 @@ namespace PRG282_Project
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Courses by Student";
             // 
-            // button13
+            // btnNextC
             // 
-            this.button13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(50)))));
-            this.button13.Location = new System.Drawing.Point(227, 137);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(75, 23);
-            this.button13.TabIndex = 6;
-            this.button13.Text = ">";
-            this.button13.UseVisualStyleBackColor = false;
+            this.btnNextC.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(50)))));
+            this.btnNextC.Location = new System.Drawing.Point(227, 137);
+            this.btnNextC.Name = "btnNextC";
+            this.btnNextC.Size = new System.Drawing.Size(75, 23);
+            this.btnNextC.TabIndex = 6;
+            this.btnNextC.Text = ">";
+            this.btnNextC.UseVisualStyleBackColor = false;
+            this.btnNextC.Click += new System.EventHandler(this.button13_Click);
             // 
-            // button12
+            // btnLastC
             // 
-            this.button12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(50)))));
-            this.button12.Location = new System.Drawing.Point(308, 136);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(75, 23);
-            this.button12.TabIndex = 6;
-            this.button12.Text = ">>";
-            this.button12.UseVisualStyleBackColor = false;
+            this.btnLastC.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(50)))));
+            this.btnLastC.Location = new System.Drawing.Point(308, 136);
+            this.btnLastC.Name = "btnLastC";
+            this.btnLastC.Size = new System.Drawing.Size(75, 23);
+            this.btnLastC.TabIndex = 6;
+            this.btnLastC.Text = ">>";
+            this.btnLastC.UseVisualStyleBackColor = false;
+            this.btnLastC.Click += new System.EventHandler(this.button12_Click);
             // 
-            // button11
+            // btnPrevC
             // 
-            this.button11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(50)))));
-            this.button11.Location = new System.Drawing.Point(97, 136);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(75, 23);
-            this.button11.TabIndex = 6;
-            this.button11.Text = "<";
-            this.button11.UseVisualStyleBackColor = false;
+            this.btnPrevC.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(50)))));
+            this.btnPrevC.Location = new System.Drawing.Point(97, 136);
+            this.btnPrevC.Name = "btnPrevC";
+            this.btnPrevC.Size = new System.Drawing.Size(75, 23);
+            this.btnPrevC.TabIndex = 6;
+            this.btnPrevC.Text = "<";
+            this.btnPrevC.UseVisualStyleBackColor = false;
+            this.btnPrevC.Click += new System.EventHandler(this.button11_Click);
             // 
-            // button10
+            // btnFirstC
             // 
-            this.button10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(50)))));
-            this.button10.Location = new System.Drawing.Point(16, 136);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(75, 23);
-            this.button10.TabIndex = 6;
-            this.button10.Text = "<<";
-            this.button10.UseVisualStyleBackColor = false;
+            this.btnFirstC.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(50)))));
+            this.btnFirstC.Location = new System.Drawing.Point(16, 136);
+            this.btnFirstC.Name = "btnFirstC";
+            this.btnFirstC.Size = new System.Drawing.Size(75, 23);
+            this.btnFirstC.TabIndex = 6;
+            this.btnFirstC.Text = "<<";
+            this.btnFirstC.UseVisualStyleBackColor = false;
+            this.btnFirstC.Click += new System.EventHandler(this.button10_Click);
             // 
             // lvwCourses
             // 
@@ -384,62 +393,96 @@ namespace PRG282_Project
             this.lvwCourses.TabIndex = 2;
             this.lvwCourses.UseCompatibleStateImageBehavior = false;
             // 
-            // gbxViewData
+            // gbxViewStudent
             // 
-            this.gbxViewData.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.gbxViewData.Controls.Add(this.button4);
-            this.gbxViewData.Controls.Add(this.button3);
-            this.gbxViewData.Controls.Add(this.button2);
-            this.gbxViewData.Controls.Add(this.button1);
-            this.gbxViewData.Controls.Add(this.pbxStudent);
-            this.gbxViewData.Controls.Add(this.dgvStudent);
-            this.gbxViewData.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.gbxViewData.Location = new System.Drawing.Point(12, 12);
-            this.gbxViewData.Name = "gbxViewData";
-            this.gbxViewData.Size = new System.Drawing.Size(776, 242);
-            this.gbxViewData.TabIndex = 5;
-            this.gbxViewData.TabStop = false;
-            this.gbxViewData.Text = "View Student Data";
+            this.gbxViewStudent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.gbxViewStudent.Controls.Add(this.btnSearch);
+            this.gbxViewStudent.Controls.Add(this.tbxSearch);
+            this.gbxViewStudent.Controls.Add(this.label9);
+            this.gbxViewStudent.Controls.Add(this.btnNextS);
+            this.gbxViewStudent.Controls.Add(this.btnPrevS);
+            this.gbxViewStudent.Controls.Add(this.btnLastS);
+            this.gbxViewStudent.Controls.Add(this.btnFirstS);
+            this.gbxViewStudent.Controls.Add(this.pbxStudent);
+            this.gbxViewStudent.Controls.Add(this.dgvStudent);
+            this.gbxViewStudent.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.gbxViewStudent.Location = new System.Drawing.Point(12, 12);
+            this.gbxViewStudent.Name = "gbxViewStudent";
+            this.gbxViewStudent.Size = new System.Drawing.Size(776, 242);
+            this.gbxViewStudent.TabIndex = 5;
+            this.gbxViewStudent.TabStop = false;
+            this.gbxViewStudent.Text = "View Student Data";
             // 
-            // button4
+            // btnSearch
             // 
-            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(50)))));
-            this.button4.Location = new System.Drawing.Point(404, 208);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 5;
-            this.button4.Text = ">";
-            this.button4.UseVisualStyleBackColor = false;
+            this.btnSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(50)))));
+            this.btnSearch.Location = new System.Drawing.Point(485, 11);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(75, 23);
+            this.btnSearch.TabIndex = 8;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
-            // button3
+            // tbxSearch
             // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(50)))));
-            this.button3.Location = new System.Drawing.Point(87, 208);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "<";
-            this.button3.UseVisualStyleBackColor = false;
+            this.tbxSearch.Location = new System.Drawing.Point(270, 13);
+            this.tbxSearch.Name = "tbxSearch";
+            this.tbxSearch.Size = new System.Drawing.Size(129, 20);
+            this.tbxSearch.TabIndex = 7;
             // 
-            // button2
+            // label9
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(50)))));
-            this.button2.Location = new System.Drawing.Point(485, 208);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 3;
-            this.button2.Text = ">>";
-            this.button2.UseVisualStyleBackColor = false;
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(125, 16);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(139, 13);
+            this.label9.TabIndex = 6;
+            this.label9.Text = "Search By Student Number:";
             // 
-            // button1
+            // btnNextS
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(50)))));
-            this.button1.Location = new System.Drawing.Point(6, 208);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "<<";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnNextS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(50)))));
+            this.btnNextS.Location = new System.Drawing.Point(404, 208);
+            this.btnNextS.Name = "btnNextS";
+            this.btnNextS.Size = new System.Drawing.Size(75, 23);
+            this.btnNextS.TabIndex = 5;
+            this.btnNextS.Text = ">";
+            this.btnNextS.UseVisualStyleBackColor = false;
+            this.btnNextS.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // btnPrevS
+            // 
+            this.btnPrevS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(50)))));
+            this.btnPrevS.Location = new System.Drawing.Point(87, 208);
+            this.btnPrevS.Name = "btnPrevS";
+            this.btnPrevS.Size = new System.Drawing.Size(75, 23);
+            this.btnPrevS.TabIndex = 4;
+            this.btnPrevS.Text = "<";
+            this.btnPrevS.UseVisualStyleBackColor = false;
+            this.btnPrevS.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // btnLastS
+            // 
+            this.btnLastS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(50)))));
+            this.btnLastS.Location = new System.Drawing.Point(485, 208);
+            this.btnLastS.Name = "btnLastS";
+            this.btnLastS.Size = new System.Drawing.Size(75, 23);
+            this.btnLastS.TabIndex = 3;
+            this.btnLastS.Text = ">>";
+            this.btnLastS.UseVisualStyleBackColor = false;
+            this.btnLastS.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // btnFirstS
+            // 
+            this.btnFirstS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(50)))));
+            this.btnFirstS.Location = new System.Drawing.Point(6, 208);
+            this.btnFirstS.Name = "btnFirstS";
+            this.btnFirstS.Size = new System.Drawing.Size(75, 23);
+            this.btnFirstS.TabIndex = 2;
+            this.btnFirstS.Text = "<<";
+            this.btnFirstS.UseVisualStyleBackColor = false;
+            this.btnFirstS.Click += new System.EventHandler(this.button1_Click);
             // 
             // pbxStudent
             // 
@@ -458,22 +501,6 @@ namespace PRG282_Project
             this.dgvStudent.Size = new System.Drawing.Size(554, 163);
             this.dgvStudent.TabIndex = 0;
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(6, 227);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(48, 13);
-            this.label8.TabIndex = 19;
-            this.label8.Text = "Address:";
-            // 
-            // tbxAddress
-            // 
-            this.tbxAddress.Location = new System.Drawing.Point(118, 224);
-            this.tbxAddress.Name = "tbxAddress";
-            this.tbxAddress.Size = new System.Drawing.Size(100, 20);
-            this.tbxAddress.TabIndex = 18;
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -483,14 +510,15 @@ namespace PRG282_Project
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.gbxControl);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.gbxViewData);
+            this.Controls.Add(this.gbxViewStudent);
             this.Name = "Main";
             this.Text = "Main";
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.gbxControl.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
-            this.gbxViewData.ResumeLayout(false);
+            this.gbxViewStudent.ResumeLayout(false);
+            this.gbxViewStudent.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxStudent)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudent)).EndInit();
             this.ResumeLayout(false);
@@ -501,7 +529,7 @@ namespace PRG282_Project
 
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.CheckBox cbxNewStudent;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.CheckedListBox clbCourses;
         private System.Windows.Forms.ComboBox cmbGender;
@@ -517,24 +545,27 @@ namespace PRG282_Project
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tbxSNumber;
         private System.Windows.Forms.GroupBox gbxControl;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button btnGoToCourses;
+        private System.Windows.Forms.Button btnDelStudent;
+        private System.Windows.Forms.Button btnDelCourse;
+        private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button13;
-        private System.Windows.Forms.Button button12;
-        private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Button btnNextC;
+        private System.Windows.Forms.Button btnLastC;
+        private System.Windows.Forms.Button btnPrevC;
+        private System.Windows.Forms.Button btnFirstC;
         private System.Windows.Forms.ListView lvwCourses;
-        private System.Windows.Forms.GroupBox gbxViewData;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.GroupBox gbxViewStudent;
+        private System.Windows.Forms.Button btnNextS;
+        private System.Windows.Forms.Button btnPrevS;
+        private System.Windows.Forms.Button btnLastS;
+        private System.Windows.Forms.Button btnFirstS;
         private System.Windows.Forms.PictureBox pbxStudent;
         private System.Windows.Forms.DataGridView dgvStudent;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox tbxAddress;
+        private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.TextBox tbxSearch;
+        private System.Windows.Forms.Label label9;
     }
 }
