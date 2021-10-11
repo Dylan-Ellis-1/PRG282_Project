@@ -30,22 +30,23 @@ namespace PRG282_Project
         private void InitializeComponent()
         {
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.cbxNewStudent = new System.Windows.Forms.CheckBox();
             this.button5 = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
-            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.clbCourses = new System.Windows.Forms.CheckedListBox();
+            this.cmbGender = new System.Windows.Forms.ComboBox();
+            this.dtpDOB = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.tbxPhone = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.tbxImgPath = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.tbxName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbxSNumber = new System.Windows.Forms.TextBox();
             this.gbxControl = new System.Windows.Forms.GroupBox();
             this.button9 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
@@ -56,7 +57,7 @@ namespace PRG282_Project
             this.button12 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.lvwCourses = new System.Windows.Forms.ListView();
             this.gbxViewData = new System.Windows.Forms.GroupBox();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -64,6 +65,7 @@ namespace PRG282_Project
             this.button1 = new System.Windows.Forms.Button();
             this.pbxStudent = new System.Windows.Forms.PictureBox();
             this.dgvStudent = new System.Windows.Forms.DataGridView();
+            this.tbxAddress = new System.Windows.Forms.TextBox();
             this.groupBox3.SuspendLayout();
             this.gbxControl.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -75,22 +77,24 @@ namespace PRG282_Project
             // groupBox3
             // 
             this.groupBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.groupBox3.Controls.Add(this.label8);
+            this.groupBox3.Controls.Add(this.tbxAddress);
             this.groupBox3.Controls.Add(this.cbxNewStudent);
             this.groupBox3.Controls.Add(this.button5);
             this.groupBox3.Controls.Add(this.label7);
-            this.groupBox3.Controls.Add(this.checkedListBox1);
-            this.groupBox3.Controls.Add(this.comboBox1);
-            this.groupBox3.Controls.Add(this.dateTimePicker1);
+            this.groupBox3.Controls.Add(this.clbCourses);
+            this.groupBox3.Controls.Add(this.cmbGender);
+            this.groupBox3.Controls.Add(this.dtpDOB);
             this.groupBox3.Controls.Add(this.label6);
             this.groupBox3.Controls.Add(this.label5);
             this.groupBox3.Controls.Add(this.label4);
-            this.groupBox3.Controls.Add(this.textBox4);
+            this.groupBox3.Controls.Add(this.tbxPhone);
             this.groupBox3.Controls.Add(this.label3);
-            this.groupBox3.Controls.Add(this.textBox3);
+            this.groupBox3.Controls.Add(this.tbxImgPath);
             this.groupBox3.Controls.Add(this.label2);
-            this.groupBox3.Controls.Add(this.textBox2);
+            this.groupBox3.Controls.Add(this.tbxName);
             this.groupBox3.Controls.Add(this.label1);
-            this.groupBox3.Controls.Add(this.textBox1);
+            this.groupBox3.Controls.Add(this.tbxSNumber);
             this.groupBox3.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.groupBox3.Location = new System.Drawing.Point(794, 12);
             this.groupBox3.Name = "groupBox3";
@@ -98,6 +102,22 @@ namespace PRG282_Project
             this.groupBox3.TabIndex = 8;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "groupBox3";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(6, 227);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(48, 13);
+            this.label8.TabIndex = 19;
+            this.label8.Text = "Address:";
+            // 
+            // tbxAddress
+            // 
+            this.tbxAddress.Location = new System.Drawing.Point(118, 224);
+            this.tbxAddress.Name = "tbxAddress";
+            this.tbxAddress.Size = new System.Drawing.Size(100, 20);
+            this.tbxAddress.TabIndex = 18;
             // 
             // cbxNewStudent
             // 
@@ -108,6 +128,7 @@ namespace PRG282_Project
             this.cbxNewStudent.TabIndex = 17;
             this.cbxNewStudent.Text = "New Student";
             this.cbxNewStudent.UseVisualStyleBackColor = true;
+            this.cbxNewStudent.CheckedChanged += new System.EventHandler(this.cbxNewStudent_CheckedChanged_1);
             // 
             // button5
             // 
@@ -122,38 +143,38 @@ namespace PRG282_Project
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 232);
+            this.label7.Location = new System.Drawing.Point(6, 262);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(35, 13);
+            this.label7.Size = new System.Drawing.Size(45, 13);
             this.label7.TabIndex = 15;
-            this.label7.Text = "label7";
+            this.label7.Text = "Courses";
             // 
-            // checkedListBox1
+            // clbCourses
             // 
-            this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Location = new System.Drawing.Point(114, 232);
-            this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(104, 94);
-            this.checkedListBox1.TabIndex = 14;
+            this.clbCourses.FormattingEnabled = true;
+            this.clbCourses.Location = new System.Drawing.Point(114, 262);
+            this.clbCourses.Name = "clbCourses";
+            this.clbCourses.Size = new System.Drawing.Size(104, 64);
+            this.clbCourses.TabIndex = 14;
             // 
-            // comboBox1
+            // cmbGender
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.cmbGender.FormattingEnabled = true;
+            this.cmbGender.Items.AddRange(new object[] {
             "M",
             "F",
             "Idiot"});
-            this.comboBox1.Location = new System.Drawing.Point(118, 167);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(100, 21);
-            this.comboBox1.TabIndex = 13;
+            this.cmbGender.Location = new System.Drawing.Point(118, 167);
+            this.cmbGender.Name = "cmbGender";
+            this.cmbGender.Size = new System.Drawing.Size(100, 21);
+            this.cmbGender.TabIndex = 13;
             // 
-            // dateTimePicker1
+            // dtpDOB
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(13, 136);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(205, 20);
-            this.dateTimePicker1.TabIndex = 12;
+            this.dtpDOB.Location = new System.Drawing.Point(13, 136);
+            this.dtpDOB.Name = "dtpDOB";
+            this.dtpDOB.Size = new System.Drawing.Size(205, 20);
+            this.dtpDOB.TabIndex = 12;
             // 
             // label6
             // 
@@ -182,12 +203,12 @@ namespace PRG282_Project
             this.label4.TabIndex = 7;
             this.label4.Text = "Phone Number:";
             // 
-            // textBox4
+            // tbxPhone
             // 
-            this.textBox4.Location = new System.Drawing.Point(118, 198);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 6;
+            this.tbxPhone.Location = new System.Drawing.Point(118, 198);
+            this.tbxPhone.Name = "tbxPhone";
+            this.tbxPhone.Size = new System.Drawing.Size(100, 20);
+            this.tbxPhone.TabIndex = 6;
             // 
             // label3
             // 
@@ -198,12 +219,12 @@ namespace PRG282_Project
             this.label3.TabIndex = 5;
             this.label3.Text = "Picture File Path";
             // 
-            // textBox3
+            // tbxImgPath
             // 
-            this.textBox3.Location = new System.Drawing.Point(118, 95);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 4;
+            this.tbxImgPath.Location = new System.Drawing.Point(118, 95);
+            this.tbxImgPath.Name = "tbxImgPath";
+            this.tbxImgPath.Size = new System.Drawing.Size(100, 20);
+            this.tbxImgPath.TabIndex = 4;
             // 
             // label2
             // 
@@ -214,12 +235,12 @@ namespace PRG282_Project
             this.label2.TabIndex = 3;
             this.label2.Text = "Name and Surname:";
             // 
-            // textBox2
+            // tbxName
             // 
-            this.textBox2.Location = new System.Drawing.Point(118, 69);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 2;
+            this.tbxName.Location = new System.Drawing.Point(118, 69);
+            this.tbxName.Name = "tbxName";
+            this.tbxName.Size = new System.Drawing.Size(100, 20);
+            this.tbxName.TabIndex = 2;
             // 
             // label1
             // 
@@ -230,12 +251,12 @@ namespace PRG282_Project
             this.label1.TabIndex = 1;
             this.label1.Text = "Student Number:";
             // 
-            // textBox1
+            // tbxSNumber
             // 
-            this.textBox1.Location = new System.Drawing.Point(118, 43);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 0;
+            this.tbxSNumber.Location = new System.Drawing.Point(118, 43);
+            this.tbxSNumber.Name = "tbxSNumber";
+            this.tbxSNumber.Size = new System.Drawing.Size(100, 20);
+            this.tbxSNumber.TabIndex = 0;
             // 
             // gbxControl
             // 
@@ -304,14 +325,14 @@ namespace PRG282_Project
             this.groupBox1.Controls.Add(this.button12);
             this.groupBox1.Controls.Add(this.button11);
             this.groupBox1.Controls.Add(this.button10);
-            this.groupBox1.Controls.Add(this.listView1);
+            this.groupBox1.Controls.Add(this.lvwCourses);
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.groupBox1.Location = new System.Drawing.Point(12, 260);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(399, 165);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
+            this.groupBox1.Text = "Courses by Student";
             // 
             // button13
             // 
@@ -353,15 +374,15 @@ namespace PRG282_Project
             this.button10.Text = "<<";
             this.button10.UseVisualStyleBackColor = false;
             // 
-            // listView1
+            // lvwCourses
             // 
-            this.listView1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(100)))));
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(6, 19);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(387, 112);
-            this.listView1.TabIndex = 2;
-            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.lvwCourses.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(100)))));
+            this.lvwCourses.HideSelection = false;
+            this.lvwCourses.Location = new System.Drawing.Point(6, 19);
+            this.lvwCourses.Name = "lvwCourses";
+            this.lvwCourses.Size = new System.Drawing.Size(387, 112);
+            this.lvwCourses.TabIndex = 2;
+            this.lvwCourses.UseCompatibleStateImageBehavior = false;
             // 
             // gbxViewData
             // 
@@ -437,6 +458,22 @@ namespace PRG282_Project
             this.dgvStudent.Size = new System.Drawing.Size(554, 163);
             this.dgvStudent.TabIndex = 0;
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(6, 227);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(48, 13);
+            this.label8.TabIndex = 19;
+            this.label8.Text = "Address:";
+            // 
+            // tbxAddress
+            // 
+            this.tbxAddress.Location = new System.Drawing.Point(118, 224);
+            this.tbxAddress.Name = "tbxAddress";
+            this.tbxAddress.Size = new System.Drawing.Size(100, 20);
+            this.tbxAddress.TabIndex = 18;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -466,19 +503,19 @@ namespace PRG282_Project
         private System.Windows.Forms.CheckBox cbxNewStudent;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.CheckedListBox checkedListBox1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.CheckedListBox clbCourses;
+        private System.Windows.Forms.ComboBox cmbGender;
+        private System.Windows.Forms.DateTimePicker dtpDOB;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox tbxPhone;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox tbxImgPath;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox tbxName;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbxSNumber;
         private System.Windows.Forms.GroupBox gbxControl;
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button button8;
@@ -489,7 +526,7 @@ namespace PRG282_Project
         private System.Windows.Forms.Button button12;
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView lvwCourses;
         private System.Windows.Forms.GroupBox gbxViewData;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
@@ -497,5 +534,7 @@ namespace PRG282_Project
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.PictureBox pbxStudent;
         private System.Windows.Forms.DataGridView dgvStudent;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox tbxAddress;
     }
 }
