@@ -60,15 +60,15 @@ namespace PRG282_Project
             this.btnFirstC = new System.Windows.Forms.Button();
             this.lvwCourses = new System.Windows.Forms.ListView();
             this.gbxViewStudent = new System.Windows.Forms.GroupBox();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.tbxSearch = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.btnNextS = new System.Windows.Forms.Button();
             this.btnPrevS = new System.Windows.Forms.Button();
             this.btnLastS = new System.Windows.Forms.Button();
             this.btnFirstS = new System.Windows.Forms.Button();
             this.pbxStudent = new System.Windows.Forms.PictureBox();
             this.dgvStudent = new System.Windows.Forms.DataGridView();
-            this.label9 = new System.Windows.Forms.Label();
-            this.tbxSearch = new System.Windows.Forms.TextBox();
-            this.btnSearch = new System.Windows.Forms.Button();
             this.groupBox3.SuspendLayout();
             this.gbxControl.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -141,6 +141,7 @@ namespace PRG282_Project
             this.btnSave.TabIndex = 16;
             this.btnSave.Text = "Save Changes";
             this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // label7
             // 
@@ -297,6 +298,7 @@ namespace PRG282_Project
             this.btnDelStudent.TabIndex = 2;
             this.btnDelStudent.Text = "Delete Student";
             this.btnDelStudent.UseVisualStyleBackColor = false;
+            this.btnDelStudent.Click += new System.EventHandler(this.btnDelStudent_Click);
             // 
             // btnDelCourse
             // 
@@ -411,6 +413,33 @@ namespace PRG282_Project
             this.gbxViewStudent.TabStop = false;
             this.gbxViewStudent.Text = "View Student Data";
             // 
+            // btnSearch
+            // 
+            this.btnSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(50)))));
+            this.btnSearch.Location = new System.Drawing.Point(485, 11);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(75, 23);
+            this.btnSearch.TabIndex = 8;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // tbxSearch
+            // 
+            this.tbxSearch.Location = new System.Drawing.Point(270, 13);
+            this.tbxSearch.Name = "tbxSearch";
+            this.tbxSearch.Size = new System.Drawing.Size(129, 20);
+            this.tbxSearch.TabIndex = 7;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(125, 16);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(139, 13);
+            this.label9.TabIndex = 6;
+            this.label9.Text = "Search By Student Number:";
+            // 
             // btnNextS
             // 
             this.btnNextS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(50)))));
@@ -471,32 +500,6 @@ namespace PRG282_Project
             this.dgvStudent.Name = "dgvStudent";
             this.dgvStudent.Size = new System.Drawing.Size(554, 163);
             this.dgvStudent.TabIndex = 0;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(125, 16);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(139, 13);
-            this.label9.TabIndex = 6;
-            this.label9.Text = "Search By Student Number:";
-            // 
-            // tbxSearch
-            // 
-            this.tbxSearch.Location = new System.Drawing.Point(270, 13);
-            this.tbxSearch.Name = "tbxSearch";
-            this.tbxSearch.Size = new System.Drawing.Size(129, 20);
-            this.tbxSearch.TabIndex = 7;
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(50)))));
-            this.btnSearch.Location = new System.Drawing.Point(485, 11);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(75, 23);
-            this.btnSearch.TabIndex = 8;
-            this.btnSearch.Text = "Search";
-            this.btnSearch.UseVisualStyleBackColor = false;
             // 
             // Main
             // 

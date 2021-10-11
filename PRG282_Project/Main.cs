@@ -17,15 +17,16 @@ namespace PRG282_Project
             InitializeComponent();
         }
 
+        DataLayer.DataHandler handler = new DataLayer.DataHandler();
         BindingSource source = new BindingSource();
         BindingSource sourceC = new BindingSource();
+        bool NewStudent = false;
         private void button9_Click(object sender, EventArgs e)
         {
             Courses frm = new Courses();
 
             frm.Show();
         }
-
         private void cbxNewStudent_CheckedChanged(object sender, EventArgs e)
         {
             if (cbxNewStudent.Checked == true)
@@ -85,6 +86,30 @@ namespace PRG282_Project
         private void button10_Click(object sender, EventArgs e)
         {
             sourceC.MoveLast();
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            dgvStudent.DataSource = handler.searchStudent(tbxSearch.Text);
+        }
+
+        private void btnDelStudent_Click(object sender, EventArgs e)
+        {
+            handler.deleteStudent(tbxSNumber.Text);
+            MessageBox.Show("Student {0} has been deleted", tbxSNumber.Text);
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            if (NewStudent == false)
+            {
+                handler.updateStudent(new Student(tbxSNumber.Text, tbxName.Text, cmbGender.SelectedItem.ToString(), tbxPhone.Text, tbxAddress.Text, tbxImgPath.Text, dtpDOB.Value));
+            }
+            else
+            if (NewStudent == true)
+            {
+                handler.addStudent(new Student(tbxSNumber.Text, tbxName.Text, cmbGender.SelectedItem.ToString(), tbxPhone.Text, tbxAddress.Text, tbxImgPath.Text, dtpDOB.Value));
+            }
         }
     }
 }
