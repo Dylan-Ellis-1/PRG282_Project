@@ -30,6 +30,8 @@ namespace PRG282_Project
         private void InitializeComponent()
         {
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.tbxAddress = new System.Windows.Forms.TextBox();
             this.cbxNewStudent = new System.Windows.Forms.CheckBox();
             this.button5 = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
@@ -64,8 +66,6 @@ namespace PRG282_Project
             this.button1 = new System.Windows.Forms.Button();
             this.pbxStudent = new System.Windows.Forms.PictureBox();
             this.dgvStudent = new System.Windows.Forms.DataGridView();
-            this.label8 = new System.Windows.Forms.Label();
-            this.tbxAddress = new System.Windows.Forms.TextBox();
             this.groupBox3.SuspendLayout();
             this.gbxControl.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -102,6 +102,22 @@ namespace PRG282_Project
             this.groupBox3.TabIndex = 8;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "groupBox3";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(6, 227);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(48, 13);
+            this.label8.TabIndex = 19;
+            this.label8.Text = "Address:";
+            // 
+            // tbxAddress
+            // 
+            this.tbxAddress.Location = new System.Drawing.Point(118, 224);
+            this.tbxAddress.Name = "tbxAddress";
+            this.tbxAddress.Size = new System.Drawing.Size(100, 20);
+            this.tbxAddress.TabIndex = 18;
             // 
             // cbxNewStudent
             // 
@@ -442,22 +458,6 @@ namespace PRG282_Project
             this.dgvStudent.Size = new System.Drawing.Size(554, 163);
             this.dgvStudent.TabIndex = 0;
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(6, 227);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(48, 13);
-            this.label8.TabIndex = 19;
-            this.label8.Text = "Address:";
-            // 
-            // tbxAddress
-            // 
-            this.tbxAddress.Location = new System.Drawing.Point(118, 224);
-            this.tbxAddress.Name = "tbxAddress";
-            this.tbxAddress.Size = new System.Drawing.Size(100, 20);
-            this.tbxAddress.TabIndex = 18;
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -470,6 +470,7 @@ namespace PRG282_Project
             this.Controls.Add(this.gbxViewData);
             this.Name = "Main";
             this.Text = "Main";
+            this.Load += new System.EventHandler(this.Main_Load);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.gbxControl.ResumeLayout(false);

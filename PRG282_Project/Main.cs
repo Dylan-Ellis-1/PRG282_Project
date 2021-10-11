@@ -52,5 +52,10 @@ namespace PRG282_Project
         {
 
         }
+
+        private void Main_Load(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
