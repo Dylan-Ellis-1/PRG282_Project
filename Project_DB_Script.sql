@@ -1,0 +1,88 @@
+
+CREATE DATABASE [Project]
+ CONTAINMENT = NONE
+ ON  PRIMARY 
+( NAME = N'Project', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL15.MSSQLSERVER\MSSQL\DATA\Project.mdf' , SIZE = 8192KB , FILEGROWTH = 65536KB )
+ LOG ON 
+( NAME = N'Project_log', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL15.MSSQLSERVER\MSSQL\DATA\Project_log.ldf' , SIZE = 8192KB , FILEGROWTH = 65536KB )
+GO;
+Use Project
+Go;
+
+CREATE Table Students
+(
+	StudentNumber varchar,
+	NameSurname varchar,
+	StudentDOB	date,
+	Phone varchar,
+	Address_ varchar,
+	ImgPath varchar,
+	Primary Key (StudentNumber)
+);
+CREATE TABLE Courses
+(
+	ModCode varchar,
+	ModName varchar,
+	ModDesc varchar,
+	Link varchar,
+	PRIMARY KEY (ModCode)
+);
+CREATE TABLE StudentCourses
+(
+	StudentNumber varchar FOREIGN KEY REFERENCES Students(StudentNumber),
+	ModCode varchar FOREIGN KEY REFERENCES Courses(ModCode),
+	PRIMARY KEY (StudentNumber, Modcode)
+);
+
+Insert Into Students(StudentNumber, NameSurname, StudentDOB, Phone, Address_, ImgPath) Values
+('50000', 'Adam Adams','09-10-2000' , '0711112222','10 Plat Str, Johannesburg','Adam Adams.png');
+Insert Into Students(StudentNumber, NameSurname, StudentDOB, Phone, Address_, ImgPath) Values
+('50001', 'Bram Adams','09-11-2000' , '0711113333','1 Easter Road, Pretoria','BramAdams.png')
+Insert Into Students(StudentNumber, NameSurname, StudentDOB, Phone, Address_, ImgPath) Values
+('50002', 'Tam Binks','19-10-2000' , '0711112322','10 Aler Lane, Alexandria','TamBinks.png')
+Insert Into Students(StudentNumber, NameSurname, StudentDOB, Phone, Address_, ImgPath) Values
+('50003', 'Cam Peggs','09-12-1999' , '0711112233','4 Epson Road, Alexandria','CamPeggs.png')
+Insert Into Students(StudentNumber, NameSurname, StudentDOB, Phone, Address_, ImgPath) Values
+('50004', 'Lily Hicks','10-03-2001' , '0711212222','10 Process Lane, Harties','LilyHicks.png')
+Insert Into Students(StudentNumber, NameSurname, StudentDOB, Phone, Address_, ImgPath) Values
+('50005', 'Rick Astley','08-11-1998' , '0711112222','17 Berg Lane, Brits','RickAstley.png')
+Insert Into Students(StudentNumber, NameSurname, StudentDOB, Phone, Address_, ImgPath) Values
+('50006', 'Jeff JustJeff','15-07-2000' , '0711112222','10 Alder Lane, BitTown','JeffJustJeff.png')
+Insert Into Students(StudentNumber, NameSurname, StudentDOB, Phone, Address_, ImgPath) Values
+('50007', 'Elly Olsen','05-11-2000' , '0711112222','9 Aler Lane, Alexandria','EllyOlsen.png')
+Insert Into Students(StudentNumber, NameSurname, StudentDOB, Phone, Address_, ImgPath) Values
+('50008', 'Peter Quill','12-05-2000' , '0711112222','1 Link Street, Kosmos','PeterQuill.png')
+Insert Into Students(StudentNumber, NameSurname, StudentDOB, Phone, Address_, ImgPath) Values
+('50009', 'Alex Mason','27-08-2000' , '0711112222','2 Alder Lane, Mooinooi','AlexMason.png')
+Insert Into Students(StudentNumber, NameSurname, StudentDOB, Phone, Address_, ImgPath) Values
+('50010', 'Max Black','09-08-2000' , '0711112222','10 Kraai Street, Mooinooi','MaxBlack.png')
+Insert Into Students(StudentNumber, NameSurname, StudentDOB, Phone, Address_, ImgPath) Values
+('50011', 'Sera Lynn','09-01-2000' , '0711112222','10 Vink Street, Pretoria','SeraLynn.png')
+Insert Into Students(StudentNumber, NameSurname, StudentDOB, Phone, Address_, ImgPath) Values
+('50012', 'Bojack Horseman','09-10-1999' , '0711112222','8 Sims Street, Pretoria','BojackHorseman.png')
+
+Insert Into Courses(ModCode, ModName, ModDesc, Link) VALUES 
+('PRG282', 'Programming 282', 'Learning of Object Relation Programming and data usage in programs.','https://www.youtube.com/watch?v=V9r-Gp3uNCE')
+Insert Into Courses(ModCode, ModName, ModDesc, Link) VALUES 
+('PRG281', 'Programming 281', 'Learning of Object Relation Programming.','https://www.youtube.com/watch?v=t2SPg6IuT3k')
+Insert Into Courses(ModCode, ModName, ModDesc, Link) VALUES 
+('WPR281', 'Web-Programming 281', 'Learning of HTML scripts and adding them via Javascripts.','https://www.youtube.com/watch?v=Gd0RBdFRvF0')
+Insert Into Courses(ModCode, ModName, ModDesc, Link) VALUES 
+('DBD281', 'Database Development 282', 'Learning of SQL server and database development.','https://www.sqlshack.com/learn-sql-create-database-create-table/')
+
+Insert Into StudentCourses(StudentNumber,ModCode) VALUES ('50000', 'PRG281');
+Insert Into StudentCourses(StudentNumber,ModCode) VALUES ('50001', 'PRG282');
+Insert Into StudentCourses(StudentNumber,ModCode) VALUES ('50002', 'WPR281');
+Insert Into StudentCourses(StudentNumber,ModCode) VALUES ('50003', 'DBD281');
+Insert Into StudentCourses(StudentNumber,ModCode) VALUES ('50004', 'PRG281');
+Insert Into StudentCourses(StudentNumber,ModCode) VALUES ('50005', 'PRG281');
+Insert Into StudentCourses(StudentNumber,ModCode) VALUES ('50006', 'WPR281');
+Insert Into StudentCourses(StudentNumber,ModCode) VALUES ('50007', 'PRG281');
+Insert Into StudentCourses(StudentNumber,ModCode) VALUES ('50008', 'DBD281');
+Insert Into StudentCourses(StudentNumber,ModCode) VALUES ('50009', 'PRG281');
+Insert Into StudentCourses(StudentNumber,ModCode) VALUES ('50011', 'PRG281');
+Insert Into StudentCourses(StudentNumber,ModCode) VALUES ('50010', 'WPR281');
+Insert Into StudentCourses(StudentNumber,ModCode) VALUES ('50012', 'PRG281');
+Insert Into StudentCourses(StudentNumber,ModCode) VALUES ('50001', 'PRG281');
+Insert Into StudentCourses(StudentNumber,ModCode) VALUES ('50002', 'PRG281');
+Insert Into StudentCourses(StudentNumber,ModCode) VALUES ('50003', 'WPR281');
