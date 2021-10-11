@@ -17,6 +17,8 @@ namespace PRG282_Project
             InitializeComponent();
         }
 
+        BindingSource source = new BindingSource();
+        BindingSource sourceC = new BindingSource();
         private void button9_Click(object sender, EventArgs e)
         {
             Courses frm = new Courses();
@@ -37,7 +39,7 @@ namespace PRG282_Project
                 {
                     clbCourses.SetItemChecked(k, false);
                 }
-                
+                btnSave.Text = "Add Student";
             }
             else
             {
@@ -48,9 +50,41 @@ namespace PRG282_Project
             }
         }
 
-        private void cbxNewStudent_CheckedChanged_1(object sender, EventArgs e)
+        private void button6_Click(object sender, EventArgs e)
         {
-
+            this.Close();
+        }
+        private void button2_Click(object sender, EventArgs e)
+        {
+            source.MoveLast();
+        }
+        private void button4_Click(object sender, EventArgs e)
+        {
+            source.MoveNext();
+        }
+        private void button3_Click(object sender, EventArgs e)
+        {
+            source.MovePrevious();
+        }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            source.MoveFirst();
+        }
+        private void button12_Click(object sender, EventArgs e)
+        {
+            sourceC.MoveLast();
+        }
+        private void button13_Click(object sender, EventArgs e)
+        {
+            sourceC.MoveNext();
+        }
+        private void button11_Click(object sender, EventArgs e)
+        {
+            sourceC.MovePrevious();
+        }
+        private void button10_Click(object sender, EventArgs e)
+        {
+            sourceC.MoveLast();
         }
     }
 }
