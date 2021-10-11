@@ -8,34 +8,29 @@ namespace PRG282_Project
 {
     class Student
     {
-        int studentNumber;
-        string name, surname, gender, phone, address, courseCode, imagePath;
+        string studentNumber, nameSurname, gender, phone, address, imagePath;
         DateTime dob;
 
         public Student()
         {
         }
 
-        public Student(int studentNumber, string name, string surname, string gender, string phone, string address, string courseCode, string imagePath, DateTime dob)
+        public Student(string studentNumber, string nameSurname, string gender, string phone, string address,  string imagePath, DateTime dob)
         {
             this.studentNumber = studentNumber;
-            this.name = name;
-            this.surname = surname;
+            this.nameSurname = nameSurname;
             this.gender = gender;
             this.phone = phone;
             this.address = address;
-            this.courseCode = courseCode;
             this.dob = dob;
             this.imagePath = imagePath;
         }
 
-        public int StudentNumber { get => studentNumber; set => studentNumber = value; }
-        public string Name { get => name; set => name = value; }
-        public string Surname { get => surname; set => surname = value; }
+        public string StudentNumber { get => studentNumber; set => studentNumber = value; }
+        public string NameSurname { get => nameSurname; set => nameSurname = value; }
         public string Gender { get => gender; set => gender = value; }
         public string Phone { get => phone; set => phone = value; }
         public string Address { get => address; set => address = value; }
-        public string CourseCode { get => courseCode; set => courseCode = value; }
         public DateTime Dob { get => dob; set => dob = value; }
         public string ImagePath { get => imagePath; set => imagePath = value; }
     }
