@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PRG282_Project.DataLayer;
 
 namespace PRG282_Project
 {
@@ -17,8 +18,7 @@ namespace PRG282_Project
             InitializeComponent();
         }
 
-        public bool NewUser = false;
-        FileHandler handler = new FileHandler();
+        FileHandler file = new FileHandler();
 
         private void Login_Load(object sender, EventArgs e)
         {
@@ -34,7 +34,6 @@ namespace PRG282_Project
                 lblConPass.Visible = true;
 
                 btnLogIn.Text = "Create User and Log In";
-                NewUser = true;
             }
             else
             if (cbxNUser.Checked == false)
@@ -44,86 +43,64 @@ namespace PRG282_Project
                 lblConPass.Visible = false;
 
                 btnLogIn.Text = "Log In";
-                NewUser = false;
             }
         }
 
         private void btnLogIn_Click(object sender, EventArgs e)
         {
-            Main frmMain = new Main();
-
-            frmMain.Show();
-
-            string NameEn = tbxUsername.Text;
-            string PassEn = tbxPassword.Text;
-            string PassConEn = tbxConPassword.Text;
-
-            if (NewUser == true)
+            if (cbxNUser.Checked == true)
             {
-                int Num = handler.AddUser(NameEn, PassEn, PassConEn);
-                switch(Num)
+                int number = file.AddUser(tbxUsername.Text, tbxPassword.Text, tbxConPassword.Text);
+
+                switch(number)
                 {
                     case 1:
-                        {
-                            lblOutput.Text = "Forbidden Characters were used, choose another username without space or a comma.";
-                            tbxUsername.Focus();
-                            break;
-                        };
+                        MessageBox.Show("Please ensure the Username does not contain a space or comma.");
+                        tbxUsername.Focus();
+                        break;
+                        
                     case 2:
-                        {
-                            lblOutput.Text = "Forbidden Characters were used, choose another password without space or a comma.";
-                            tbxPassword.Focus();
-                            break;
-                        };
+                        MessageBox.Show("Please ensure the Password does not contain a space or comma.");
+                        tbxPassword.Focus();
+                        break;
+                        
                     case 3:
-                        {
-                            lblOutput.Text = "Passwords do not match";
-                            tbxConPassword.Focus();
-                            break;
-                        }
+                        MessageBox.Show("Passwords do not match");
+                        tbxConPassword.Focus();
+                        break;
+                        
                     case 4:
-                        {
-                            lblOutput.Text = "User Already Excists, Pick a new Username.";
-                            tbxUsername.Focus();
-                            break;
-                        }
+                        MessageBox.Show("User Already Excists, Pick a new Username.");
+                        tbxUsername.Focus();
+                        break;
+                        
                     case 0:
+                        MessageBox.Show("User added.");
+
+                        if (file.CheckUser(tbxUsername.Text, tbxPassword.Text) == true)
                         {
-                            tbxUsername.Text = NameEn;
-                            tbxPassword.Text = PassEn;
-                            NewUser = false;
-                            cbxNUser.Checked = false;
-                            break;
+                            Main frmMain = new Main();
+
+                            frmMain.Show();
                         }
-
+                        else
+                        {
+                            MessageBox.Show("User not found.\nMake sure Username and Password is correct or create a new User.");
+                        }
+                        break;   
                 }
-
             }
             else
-            if (NewUser == false)
             {
-                int Num = handler.LoginF(NameEn, PassEn);
-                switch(Num)
+                if (file.CheckUser(tbxUsername.Text, tbxPassword.Text) == true)
                 {
-                    case 1:
-                        {
-                            lblOutput.Text = "User not found, consider making a new account";
-                            cbxNUser.Focus();
-                            break;
-                        }
-                    case 2:
-                        {
-                            lblOutput.Text = "Wrong password was given for the username.";
-                            tbxPassword.Focus();
-                            break;
-                        }
-                    case 0:
-                        {
-                            Main form = new Main();
-                            form.Show();
-                            break;
-                        }
+                    Main frmMain = new Main();
 
+                    frmMain.Show();
+                }
+                else
+                {
+                    MessageBox.Show("User not found.\nMake sure Username and Password is correct or create a new User.");
                 }
             }
         }

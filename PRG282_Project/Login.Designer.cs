@@ -93,9 +93,9 @@ namespace PRG282_Project
             // 
             // tbxConPassword
             // 
-            this.tbxConPassword.BackColor = System.Drawing.Color.Gray;
+            this.tbxConPassword.BackColor = System.Drawing.SystemColors.Window;
             this.tbxConPassword.Enabled = false;
-            this.tbxConPassword.ForeColor = System.Drawing.SystemColors.Info;
+            this.tbxConPassword.ForeColor = System.Drawing.SystemColors.Desktop;
             this.tbxConPassword.Location = new System.Drawing.Point(6, 155);
             this.tbxConPassword.Name = "tbxConPassword";
             this.tbxConPassword.Size = new System.Drawing.Size(100, 20);
@@ -117,8 +117,8 @@ namespace PRG282_Project
             // 
             // tbxUsername
             // 
-            this.tbxUsername.BackColor = System.Drawing.Color.Gray;
-            this.tbxUsername.ForeColor = System.Drawing.SystemColors.Info;
+            this.tbxUsername.BackColor = System.Drawing.SystemColors.Window;
+            this.tbxUsername.ForeColor = System.Drawing.SystemColors.Desktop;
             this.tbxUsername.Location = new System.Drawing.Point(6, 49);
             this.tbxUsername.Name = "tbxUsername";
             this.tbxUsername.Size = new System.Drawing.Size(100, 20);
@@ -126,8 +126,8 @@ namespace PRG282_Project
             // 
             // tbxPassword
             // 
-            this.tbxPassword.BackColor = System.Drawing.Color.Gray;
-            this.tbxPassword.ForeColor = System.Drawing.SystemColors.Info;
+            this.tbxPassword.BackColor = System.Drawing.SystemColors.Window;
+            this.tbxPassword.ForeColor = System.Drawing.SystemColors.Desktop;
             this.tbxPassword.Location = new System.Drawing.Point(6, 104);
             this.tbxPassword.Name = "tbxPassword";
             this.tbxPassword.Size = new System.Drawing.Size(100, 20);

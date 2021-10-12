@@ -48,7 +48,7 @@
   <ItemGroup>
     <Compile Include="Course.cs" />
     <Compile Include="DataLayer\DataHandler.cs" />
-    <Compile Include="FileHandler.cs" />
+    <Compile Include="DataLayer\FileHandler.cs" />
     <Compile Include="Courses.cs">
       <SubType>Form</SubType>
     </Compile>

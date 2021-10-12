@@ -113,12 +113,12 @@ namespace PRG282_Project
             }
             if (NewStudent == false)
             {
-                handler.updateStudent(new Student(tbxSNumber.Text, tbxName.Text, cmbGender.SelectedItem.ToString(), tbxPhone.Text, tbxAddress.Text, tbxImgPath.Text, date));
+                handler.updateStudent(new Student(tbxSNumber.Text, tbxName.Text, cmbGender.SelectedItem.ToString(), tbxPhone.Text, tbxAddress.Text, tbxImgPath.Text, date), LCourses);
             }
             else
             if (NewStudent == true)
             {
-                handler.addStudent(new Student(tbxSNumber.Text, tbxName.Text, cmbGender.SelectedItem.ToString(), tbxPhone.Text, tbxAddress.Text, tbxImgPath.Text, date));
+                handler.addStudent(new Student(tbxSNumber.Text, tbxName.Text, cmbGender.SelectedItem.ToString(), tbxPhone.Text, tbxAddress.Text, tbxImgPath.Text, date), LCourses);
             }
         }
     }
