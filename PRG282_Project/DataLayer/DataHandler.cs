@@ -15,7 +15,7 @@ namespace PRG282_Project.DataLayer
         {
         }
                                         
-        string con = "Server=.; Initial Catalog= [Project]; Integrated Security=SSPI";
+        string con = "Server=.; Initial Catalog= Project; Integrated Security=SSPI";
         
         //Get
         public DataTable getStudent()

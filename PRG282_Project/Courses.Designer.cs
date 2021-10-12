@@ -45,15 +45,15 @@ namespace PRG282_Project
             this.tbxName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.tbxCourseID = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.tbxSearch = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.dgvCourses = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCourses)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -69,6 +69,7 @@ namespace PRG282_Project
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.groupBox2.Controls.Add(this.dgvCourses);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.cbxNewCourse);
             this.groupBox2.Controls.Add(this.btnBack);
@@ -83,7 +84,6 @@ namespace PRG282_Project
             this.groupBox2.Controls.Add(this.tbxName);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.tbxCourseID);
-            this.groupBox2.Controls.Add(this.dataGridView1);
             this.groupBox2.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.groupBox2.Location = new System.Drawing.Point(3, 57);
             this.groupBox2.Name = "groupBox2";
@@ -110,6 +110,7 @@ namespace PRG282_Project
             this.cbxNewCourse.TabIndex = 13;
             this.cbxNewCourse.Text = "Add New Course";
             this.cbxNewCourse.UseVisualStyleBackColor = true;
+            this.cbxNewCourse.CheckedChanged += new System.EventHandler(this.cbxNewCourse_CheckedChanged);
             // 
             // btnBack
             // 
@@ -120,6 +121,7 @@ namespace PRG282_Project
             this.btnBack.TabIndex = 12;
             this.btnBack.Text = "Back To Main";
             this.btnBack.UseVisualStyleBackColor = false;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // btnAddNewUser
             // 
@@ -132,6 +134,7 @@ namespace PRG282_Project
             this.btnAddNewUser.Text = "Add New User";
             this.btnAddNewUser.UseVisualStyleBackColor = false;
             this.btnAddNewUser.Visible = false;
+            this.btnAddNewUser.Click += new System.EventHandler(this.btnAddNewUser_Click);
             // 
             // btnEdit
             // 
@@ -142,6 +145,7 @@ namespace PRG282_Project
             this.btnEdit.TabIndex = 10;
             this.btnEdit.Text = "Save Changes";
             this.btnEdit.UseVisualStyleBackColor = false;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnDelete
             // 
@@ -152,17 +156,19 @@ namespace PRG282_Project
             this.btnDelete.TabIndex = 9;
             this.btnDelete.Text = "Delete Course";
             this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // lblLink
             // 
             this.lblLink.AutoSize = true;
-            this.lblLink.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(200)))));
+            this.lblLink.LinkColor = System.Drawing.Color.White;
             this.lblLink.Location = new System.Drawing.Point(6, 267);
             this.lblLink.Name = "lblLink";
             this.lblLink.Size = new System.Drawing.Size(124, 13);
             this.lblLink.TabIndex = 8;
             this.lblLink.TabStop = true;
             this.lblLink.Text = "Click Here To Visit Site...";
+            this.lblLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblLink_LinkClicked);
             // 
             // rtbDescription
             // 
@@ -220,14 +226,6 @@ namespace PRG282_Project
             this.tbxCourseID.Size = new System.Drawing.Size(206, 20);
             this.tbxCourseID.TabIndex = 1;
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 16);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(474, 131);
-            this.dataGridView1.TabIndex = 0;
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.btnSearch);
@@ -251,6 +249,7 @@ namespace PRG282_Project
             this.btnSearch.TabIndex = 2;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // tbxSearch
             // 
@@ -268,21 +267,31 @@ namespace PRG282_Project
             this.label1.TabIndex = 0;
             this.label1.Text = "Search by Course Name:";
             // 
-            // Form1
+            // dgvCourses
+            // 
+            this.dgvCourses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCourses.Location = new System.Drawing.Point(9, 19);
+            this.dgvCourses.Name = "dgvCourses";
+            this.dgvCourses.Size = new System.Drawing.Size(468, 128);
+            this.dgvCourses.TabIndex = 15;
+            this.dgvCourses.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCourses_CellClick);
+            // 
+            // Courses
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(527, 428);
             this.Controls.Add(this.panel1);
-            this.Name = "Form1";
+            this.Name = "Courses";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Courses_Load);
             this.panel1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCourses)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -305,10 +314,10 @@ namespace PRG282_Project
         private System.Windows.Forms.TextBox tbxName;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tbxCourseID;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.TextBox tbxSearch;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridView dgvCourses;
     }
 }

@@ -99,7 +99,7 @@ namespace PRG282_Project
             this.tbxConPassword.Location = new System.Drawing.Point(6, 155);
             this.tbxConPassword.Name = "tbxConPassword";
             this.tbxConPassword.Size = new System.Drawing.Size(100, 20);
-            this.tbxConPassword.TabIndex = 6;
+            this.tbxConPassword.TabIndex = 3;
             this.tbxConPassword.Visible = false;
             // 
             // btnLogIn
@@ -122,7 +122,7 @@ namespace PRG282_Project
             this.tbxUsername.Location = new System.Drawing.Point(6, 49);
             this.tbxUsername.Name = "tbxUsername";
             this.tbxUsername.Size = new System.Drawing.Size(100, 20);
-            this.tbxUsername.TabIndex = 3;
+            this.tbxUsername.TabIndex = 1;
             // 
             // tbxPassword
             // 
