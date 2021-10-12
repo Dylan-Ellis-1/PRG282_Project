@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PRG282_Project.DataLayer;
 
 namespace PRG282_Project
 {
@@ -17,7 +18,7 @@ namespace PRG282_Project
             InitializeComponent();
         }
 
-        DataLayer.DataHandler handler = new DataLayer.DataHandler();
+        DataHandler handler = new DataLayer.DataHandler();
         BindingSource source = new BindingSource();
         BindingSource sourceC = new BindingSource();
         bool NewStudent = false;
