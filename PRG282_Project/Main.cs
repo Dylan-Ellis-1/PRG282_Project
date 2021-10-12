@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace PRG282_Project
 {
     public partial class Main : Form
@@ -122,18 +123,21 @@ namespace PRG282_Project
             dgvStudent.Rows[NRows].Selected = false;
             NRows = dgvStudent.Rows.Count - 1;
             dgvStudent.Rows[NRows].Selected = true;
+            FillSelectedForm();
         }
         private void button4_Click(object sender, EventArgs e)
         {
             dgvStudent.Rows[NRows].Selected = false;
             NRows++;
             dgvStudent.Rows[NRows].Selected = true;
+            FillSelectedForm();
         }
         private void button3_Click(object sender, EventArgs e)
         {
             dgvStudent.Rows[NRows].Selected = false;
             NRows = NRows -1;
             dgvStudent.Rows[NRows].Selected = true;
+            FillSelectedForm();
         }
         private void button1_Click(object sender, EventArgs e)
         {
@@ -145,7 +149,6 @@ namespace PRG282_Project
         {
             dgvCourses.Rows[NRowsC].Selected = false;
             NRowsC = dgvCourses.Rows.Count-1;
-            dgvCourses.Rows[NRowsC].Selected = true;
         }
         private void button13_Click(object sender, EventArgs e)
         {
@@ -168,11 +171,17 @@ namespace PRG282_Project
         private void btnSearch_Click(object sender, EventArgs e)
         {
             dgvStudent.DataSource = handler.searchStudent(tbxSearch.Text);
+            FillSelectedForm();
         }
         private void btnDelStudent_Click(object sender, EventArgs e)
         {
             handler.deleteStudent(tbxSNumber.Text);
             MessageBox.Show("Student {0} has been deleted", tbxSNumber.Text);
+
+            dgvStudent.Rows[NRows].Selected = false;
+            NRows = 0;
+            dgvStudent.Rows[NRows].Selected = true;
+            FillSelectedForm();
         }
         private void btnSave_Click(object sender, EventArgs e)
         {
@@ -194,6 +203,11 @@ namespace PRG282_Project
             if (NewStudent == true)
             {
                 handler.addStudent(new Student(tbxSNumber.Text, tbxName.Text, cmbGender.SelectedItem.ToString(), tbxPhone.Text, tbxAddress.Text, tbxImgPath.Text, date),LCourses);
+
+                dgvStudent.Rows[NRows].Selected = false;
+                NRows = dgvStudent.Rows.Count - 1;
+                dgvStudent.Rows[NRows].Selected = true;
+                FillSelectedForm();
             }
         }
 
@@ -201,7 +215,8 @@ namespace PRG282_Project
         {
             dtpDOB.CustomFormat = "dd mm yyyy";
             List<string> CourseL = new List<string>();
-            CourseL = handler.GetModCodes();
+            //CourseL = handler.getModCodes();
+            
             for (int k = 0; k < CourseL.Count; k++)
             {
                 clbCourses.Items.Add(CourseL[k].ToString());
@@ -214,6 +229,17 @@ namespace PRG282_Project
         {
             NRows = dgvCourses.SelectedRows[0].Index;
             FillSelectedForm();
+        }
+
+        private void btnDelCourse_Click(object sender, EventArgs e)
+        {
+            handler.deleteCourseForStudent(dgvCourses.SelectedRows[0].Cells[0].Value.ToString(),dgvStudent.SelectedRows[0].Cells[0].Value.ToString());
+            MessageBox.Show("Course Deleted for this Student");
+        }
+
+        private void cbxNewStudent_CheckedChanged_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

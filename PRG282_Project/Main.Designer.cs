@@ -132,6 +132,7 @@ namespace PRG282_Project
             this.cbxNewStudent.TabIndex = 17;
             this.cbxNewStudent.Text = "New Student";
             this.cbxNewStudent.UseVisualStyleBackColor = true;
+            this.cbxNewStudent.CheckedChanged += new System.EventHandler(this.cbxNewStudent_CheckedChanged_1);
             // 
             // btnSave
             // 
@@ -312,6 +313,7 @@ namespace PRG282_Project
             this.btnDelCourse.TabIndex = 1;
             this.btnDelCourse.Text = "Delete Course For Student";
             this.btnDelCourse.UseVisualStyleBackColor = false;
+            this.btnDelCourse.Click += new System.EventHandler(this.btnDelCourse_Click);
             // 
             // btnExit
             // 

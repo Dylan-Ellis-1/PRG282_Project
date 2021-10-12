@@ -47,20 +47,24 @@ namespace PRG282_Project.DataLayer
             return studentData;
         }
 
-        //Get List for CheckedListBox
-        public List<string> GetModCodes(string StuNum)
+        public List<string> getModCodes()
         {
+
+            List<string> Courses = new List<string>();
             SqlConnection cn = new SqlConnection(con);
 
-            SqlDataAdapter adapter = new SqlDataAdapter("spGetCourses", con);
+            SqlDataAdapter adapter = new SqlDataAdapter("spGetModCodes", con);
 
             adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
 
             DataTable studentData = new DataTable();
 
             adapter.Fill(studentData);
-
-            return studentData;
+            for (int k = 0; k < studentData.Rows.Count - 1; k++)
+            {
+                Courses.Add(studentData.Rows[k][0].ToString());
+            }
+            return Courses;
         }
 
         //Update
@@ -277,7 +281,6 @@ namespace PRG282_Project.DataLayer
                 }
             }
         }
-
 
         public DataTable populateCourse(string id)
         {
