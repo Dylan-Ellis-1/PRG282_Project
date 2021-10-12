@@ -30,6 +30,7 @@ namespace PRG282_Project
         private void InitializeComponent()
         {
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.tbxDOB = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.tbxAddress = new System.Windows.Forms.TextBox();
             this.cbxNewStudent = new System.Windows.Forms.CheckBox();
@@ -37,7 +38,6 @@ namespace PRG282_Project
             this.label7 = new System.Windows.Forms.Label();
             this.clbCourses = new System.Windows.Forms.CheckedListBox();
             this.cmbGender = new System.Windows.Forms.ComboBox();
-            this.dtpDOB = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -81,6 +81,7 @@ namespace PRG282_Project
             // groupBox3
             // 
             this.groupBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.groupBox3.Controls.Add(this.tbxDOB);
             this.groupBox3.Controls.Add(this.label8);
             this.groupBox3.Controls.Add(this.tbxAddress);
             this.groupBox3.Controls.Add(this.cbxNewStudent);
@@ -88,7 +89,6 @@ namespace PRG282_Project
             this.groupBox3.Controls.Add(this.label7);
             this.groupBox3.Controls.Add(this.clbCourses);
             this.groupBox3.Controls.Add(this.cmbGender);
-            this.groupBox3.Controls.Add(this.dtpDOB);
             this.groupBox3.Controls.Add(this.label6);
             this.groupBox3.Controls.Add(this.label5);
             this.groupBox3.Controls.Add(this.label4);
@@ -107,10 +107,17 @@ namespace PRG282_Project
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "groupBox3";
             // 
+            // tbxDOB
+            // 
+            this.tbxDOB.Location = new System.Drawing.Point(118, 120);
+            this.tbxDOB.Name = "tbxDOB";
+            this.tbxDOB.Size = new System.Drawing.Size(100, 20);
+            this.tbxDOB.TabIndex = 20;
+            // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(6, 227);
+            this.label8.Location = new System.Drawing.Point(5, 206);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(48, 13);
             this.label8.TabIndex = 19;
@@ -118,7 +125,7 @@ namespace PRG282_Project
             // 
             // tbxAddress
             // 
-            this.tbxAddress.Location = new System.Drawing.Point(118, 224);
+            this.tbxAddress.Location = new System.Drawing.Point(117, 203);
             this.tbxAddress.Name = "tbxAddress";
             this.tbxAddress.Size = new System.Drawing.Size(100, 20);
             this.tbxAddress.TabIndex = 18;
@@ -132,7 +139,6 @@ namespace PRG282_Project
             this.cbxNewStudent.TabIndex = 17;
             this.cbxNewStudent.Text = "New Student";
             this.cbxNewStudent.UseVisualStyleBackColor = true;
-            this.cbxNewStudent.CheckedChanged += new System.EventHandler(this.cbxNewStudent_CheckedChanged_1);
             // 
             // btnSave
             // 
@@ -148,7 +154,7 @@ namespace PRG282_Project
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 262);
+            this.label7.Location = new System.Drawing.Point(5, 241);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(45, 13);
             this.label7.TabIndex = 15;
@@ -157,7 +163,7 @@ namespace PRG282_Project
             // clbCourses
             // 
             this.clbCourses.FormattingEnabled = true;
-            this.clbCourses.Location = new System.Drawing.Point(114, 262);
+            this.clbCourses.Location = new System.Drawing.Point(113, 241);
             this.clbCourses.Name = "clbCourses";
             this.clbCourses.Size = new System.Drawing.Size(104, 64);
             this.clbCourses.TabIndex = 14;
@@ -169,23 +175,15 @@ namespace PRG282_Project
             "M",
             "F",
             "Idiot"});
-            this.cmbGender.Location = new System.Drawing.Point(118, 167);
+            this.cmbGender.Location = new System.Drawing.Point(117, 146);
             this.cmbGender.Name = "cmbGender";
             this.cmbGender.Size = new System.Drawing.Size(100, 21);
             this.cmbGender.TabIndex = 13;
             // 
-            // dtpDOB
-            // 
-            this.dtpDOB.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpDOB.Location = new System.Drawing.Point(13, 136);
-            this.dtpDOB.Name = "dtpDOB";
-            this.dtpDOB.Size = new System.Drawing.Size(205, 20);
-            this.dtpDOB.TabIndex = 12;
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 120);
+            this.label6.Location = new System.Drawing.Point(6, 123);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(68, 13);
             this.label6.TabIndex = 11;
@@ -194,7 +192,7 @@ namespace PRG282_Project
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 170);
+            this.label5.Location = new System.Drawing.Point(5, 149);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(42, 13);
             this.label5.TabIndex = 9;
@@ -203,7 +201,7 @@ namespace PRG282_Project
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 201);
+            this.label4.Location = new System.Drawing.Point(5, 180);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(81, 13);
             this.label4.TabIndex = 7;
@@ -211,7 +209,7 @@ namespace PRG282_Project
             // 
             // tbxPhone
             // 
-            this.tbxPhone.Location = new System.Drawing.Point(118, 198);
+            this.tbxPhone.Location = new System.Drawing.Point(117, 177);
             this.tbxPhone.Name = "tbxPhone";
             this.tbxPhone.Size = new System.Drawing.Size(100, 20);
             this.tbxPhone.TabIndex = 6;
@@ -360,7 +358,7 @@ namespace PRG282_Project
             this.btnNextC.TabIndex = 6;
             this.btnNextC.Text = ">";
             this.btnNextC.UseVisualStyleBackColor = false;
-            this.btnNextC.Click += new System.EventHandler(this.button13_Click);
+            this.btnNextC.Click += new System.EventHandler(this.btnNextC_Click);
             // 
             // btnLastC
             // 
@@ -371,7 +369,7 @@ namespace PRG282_Project
             this.btnLastC.TabIndex = 6;
             this.btnLastC.Text = ">>";
             this.btnLastC.UseVisualStyleBackColor = false;
-            this.btnLastC.Click += new System.EventHandler(this.button12_Click);
+            this.btnLastC.Click += new System.EventHandler(this.btnLastC_Click);
             // 
             // btnPrevC
             // 
@@ -382,7 +380,7 @@ namespace PRG282_Project
             this.btnPrevC.TabIndex = 6;
             this.btnPrevC.Text = "<";
             this.btnPrevC.UseVisualStyleBackColor = false;
-            this.btnPrevC.Click += new System.EventHandler(this.button11_Click);
+            this.btnPrevC.Click += new System.EventHandler(this.btnPrevC_Click);
             // 
             // btnFirstC
             // 
@@ -393,7 +391,7 @@ namespace PRG282_Project
             this.btnFirstC.TabIndex = 6;
             this.btnFirstC.Text = "<<";
             this.btnFirstC.UseVisualStyleBackColor = false;
-            this.btnFirstC.Click += new System.EventHandler(this.button10_Click);
+            this.btnFirstC.Click += new System.EventHandler(this.btnFirstC_Click);
             // 
             // gbxViewStudent
             // 
@@ -451,7 +449,7 @@ namespace PRG282_Project
             this.btnNextS.TabIndex = 5;
             this.btnNextS.Text = ">";
             this.btnNextS.UseVisualStyleBackColor = false;
-            this.btnNextS.Click += new System.EventHandler(this.button4_Click);
+            this.btnNextS.Click += new System.EventHandler(this.btnNextS_Click);
             // 
             // btnPrevS
             // 
@@ -462,7 +460,7 @@ namespace PRG282_Project
             this.btnPrevS.TabIndex = 4;
             this.btnPrevS.Text = "<";
             this.btnPrevS.UseVisualStyleBackColor = false;
-            this.btnPrevS.Click += new System.EventHandler(this.button3_Click);
+            this.btnPrevS.Click += new System.EventHandler(this.btnPrevS_Click);
             // 
             // btnLastS
             // 
@@ -473,7 +471,7 @@ namespace PRG282_Project
             this.btnLastS.TabIndex = 3;
             this.btnLastS.Text = ">>";
             this.btnLastS.UseVisualStyleBackColor = false;
-            this.btnLastS.Click += new System.EventHandler(this.button2_Click);
+            this.btnLastS.Click += new System.EventHandler(this.btnLastS_Click);
             // 
             // btnFirstS
             // 
@@ -484,7 +482,7 @@ namespace PRG282_Project
             this.btnFirstS.TabIndex = 2;
             this.btnFirstS.Text = "<<";
             this.btnFirstS.UseVisualStyleBackColor = false;
-            this.btnFirstS.Click += new System.EventHandler(this.button1_Click);
+            this.btnFirstS.Click += new System.EventHandler(this.btnFirstS_Click);
             // 
             // pbxStudent
             // 
@@ -502,7 +500,7 @@ namespace PRG282_Project
             this.dgvStudent.Name = "dgvStudent";
             this.dgvStudent.Size = new System.Drawing.Size(554, 163);
             this.dgvStudent.TabIndex = 0;
-            this.dgvStudent.SelectionChanged += new System.EventHandler(this.dgvStudent_SelectionChanged);
+            this.dgvStudent.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvStudent_CellClick);
             // 
             // Main
             // 
@@ -538,7 +536,6 @@ namespace PRG282_Project
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.CheckedListBox clbCourses;
         private System.Windows.Forms.ComboBox cmbGender;
-        private System.Windows.Forms.DateTimePicker dtpDOB;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
@@ -572,5 +569,6 @@ namespace PRG282_Project
         private System.Windows.Forms.TextBox tbxSearch;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.DataGridView dgvCourses;
+        private System.Windows.Forms.TextBox tbxDOB;
     }
 }

@@ -36,7 +36,7 @@ namespace PRG282_Project.DataLayer
         {
             SqlConnection cn = new SqlConnection(con);
 
-            SqlDataAdapter adapter = new SqlDataAdapter("spGetCoursesValues", con);
+            SqlDataAdapter adapter = new SqlDataAdapter("spGetCourses", con);
 
             adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
 
@@ -60,7 +60,7 @@ namespace PRG282_Project.DataLayer
             DataTable studentData = new DataTable();
 
             adapter.Fill(studentData);
-            for (int k = 0; k < studentData.Rows.Count - 1; k++)
+            for (int k = 0; k < studentData.Rows.Count; k++)
             {
                 Courses.Add(studentData.Rows[k][0].ToString());
             }

@@ -31,7 +31,9 @@ namespace PRG282_Project
         {
             string courseId = tbxCourseID.Text;
 
-            handler.deleteCourse(courseId);
+            string message = handler.deleteCourse(courseId);
+            MessageBox.Show(message);
+
             dgvCourses.DataSource = handler.getCourse();
         }
 
@@ -44,7 +46,9 @@ namespace PRG282_Project
 
             Course course = new Course(courseId, courseName, description, link);
 
-            handler.updateCourse(course);
+            string message = handler.updateCourse(course);
+            MessageBox.Show(message);
+
             dgvCourses.DataSource = handler.getCourse();
         }
 
@@ -57,7 +61,9 @@ namespace PRG282_Project
 
             Course course = new Course(courseId, courseName, description, link);
 
-            handler.addCourse(course);
+            string message = handler.addCourse(course);
+            MessageBox.Show(message);
+
             dgvCourses.DataSource = handler.getCourse();
 
             cbxNewCourse.Checked = false;
