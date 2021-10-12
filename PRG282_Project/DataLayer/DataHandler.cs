@@ -32,8 +32,23 @@ namespace PRG282_Project.DataLayer
 
             return studentData;
         }
-
         public DataTable getCourse()
+        {
+            SqlConnection cn = new SqlConnection(con);
+
+            SqlDataAdapter adapter = new SqlDataAdapter("spGetCoursesValues", con);
+
+            adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
+
+            DataTable studentData = new DataTable();
+
+            adapter.Fill(studentData);
+
+            return studentData;
+        }
+
+        //Get List for CheckedListBox
+        public List<string> GetModCodes(string StuNum)
         {
             SqlConnection cn = new SqlConnection(con);
 
@@ -262,6 +277,7 @@ namespace PRG282_Project.DataLayer
                 }
             }
         }
+
 
         public DataTable populateCourse(string id)
         {
