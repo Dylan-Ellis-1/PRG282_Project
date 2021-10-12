@@ -17,6 +17,7 @@ namespace PRG282_Project.DataLayer
                                         
         string con = "Server=.; Initial Catalog= [Project]; Integrated Security=SSPI";
         
+        //Get
         public DataTable getStudent()
         {
             SqlConnection cn = new SqlConnection(con);
@@ -47,6 +48,7 @@ namespace PRG282_Project.DataLayer
             return studentData;
         }
 
+        //Update
         public string updateStudent(Student student, List<string> courses)
         {
             try
@@ -136,6 +138,8 @@ namespace PRG282_Project.DataLayer
             }
         }
 
+        //Delete
+
         public string deleteStudent(string id)
         {
             try
@@ -212,6 +216,7 @@ namespace PRG282_Project.DataLayer
             }
         }
 
+        //Search
         public DataTable searchStudent(string id)
         {
             using (SqlConnection cn = new SqlConnection(con))
@@ -281,6 +286,7 @@ namespace PRG282_Project.DataLayer
             }
         }
 
+        //Add
         public string addStudent(Student student, List<string> courses)
         {
             try
