@@ -29,7 +29,7 @@ namespace PRG282_Project
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.gbxStudent = new System.Windows.Forms.GroupBox();
             this.tbxDOB = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.tbxAddress = new System.Windows.Forms.TextBox();
@@ -69,7 +69,7 @@ namespace PRG282_Project
             this.btnFirstS = new System.Windows.Forms.Button();
             this.pbxStudent = new System.Windows.Forms.PictureBox();
             this.dgvStudent = new System.Windows.Forms.DataGridView();
-            this.groupBox3.SuspendLayout();
+            this.gbxStudent.SuspendLayout();
             this.gbxControl.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCourses)).BeginInit();
@@ -78,34 +78,34 @@ namespace PRG282_Project
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudent)).BeginInit();
             this.SuspendLayout();
             // 
-            // groupBox3
+            // gbxStudent
             // 
-            this.groupBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.groupBox3.Controls.Add(this.tbxDOB);
-            this.groupBox3.Controls.Add(this.label8);
-            this.groupBox3.Controls.Add(this.tbxAddress);
-            this.groupBox3.Controls.Add(this.cbxNewStudent);
-            this.groupBox3.Controls.Add(this.btnSave);
-            this.groupBox3.Controls.Add(this.label7);
-            this.groupBox3.Controls.Add(this.clbCourses);
-            this.groupBox3.Controls.Add(this.cmbGender);
-            this.groupBox3.Controls.Add(this.label6);
-            this.groupBox3.Controls.Add(this.label5);
-            this.groupBox3.Controls.Add(this.label4);
-            this.groupBox3.Controls.Add(this.tbxPhone);
-            this.groupBox3.Controls.Add(this.label3);
-            this.groupBox3.Controls.Add(this.tbxImgPath);
-            this.groupBox3.Controls.Add(this.label2);
-            this.groupBox3.Controls.Add(this.tbxName);
-            this.groupBox3.Controls.Add(this.label1);
-            this.groupBox3.Controls.Add(this.tbxSNumber);
-            this.groupBox3.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.groupBox3.Location = new System.Drawing.Point(794, 12);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(224, 413);
-            this.groupBox3.TabIndex = 8;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "groupBox3";
+            this.gbxStudent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.gbxStudent.Controls.Add(this.tbxDOB);
+            this.gbxStudent.Controls.Add(this.label8);
+            this.gbxStudent.Controls.Add(this.tbxAddress);
+            this.gbxStudent.Controls.Add(this.cbxNewStudent);
+            this.gbxStudent.Controls.Add(this.btnSave);
+            this.gbxStudent.Controls.Add(this.label7);
+            this.gbxStudent.Controls.Add(this.clbCourses);
+            this.gbxStudent.Controls.Add(this.cmbGender);
+            this.gbxStudent.Controls.Add(this.label6);
+            this.gbxStudent.Controls.Add(this.label5);
+            this.gbxStudent.Controls.Add(this.label4);
+            this.gbxStudent.Controls.Add(this.tbxPhone);
+            this.gbxStudent.Controls.Add(this.label3);
+            this.gbxStudent.Controls.Add(this.tbxImgPath);
+            this.gbxStudent.Controls.Add(this.label2);
+            this.gbxStudent.Controls.Add(this.tbxName);
+            this.gbxStudent.Controls.Add(this.label1);
+            this.gbxStudent.Controls.Add(this.tbxSNumber);
+            this.gbxStudent.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.gbxStudent.Location = new System.Drawing.Point(794, 12);
+            this.gbxStudent.Name = "gbxStudent";
+            this.gbxStudent.Size = new System.Drawing.Size(224, 413);
+            this.gbxStudent.TabIndex = 8;
+            this.gbxStudent.TabStop = false;
+            this.gbxStudent.Text = "Student Data";
             // 
             // tbxDOB
             // 
@@ -172,9 +172,8 @@ namespace PRG282_Project
             // 
             this.cmbGender.FormattingEnabled = true;
             this.cmbGender.Items.AddRange(new object[] {
-            "M",
-            "F",
-            "Idiot"});
+            "Male",
+            "Female"});
             this.cmbGender.Location = new System.Drawing.Point(117, 146);
             this.cmbGender.Name = "cmbGender";
             this.cmbGender.Size = new System.Drawing.Size(100, 21);
@@ -348,6 +347,7 @@ namespace PRG282_Project
             this.dgvCourses.Name = "dgvCourses";
             this.dgvCourses.Size = new System.Drawing.Size(367, 111);
             this.dgvCourses.TabIndex = 7;
+            this.dgvCourses.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCourses_CellClick);
             // 
             // btnNextC
             // 
@@ -508,15 +508,15 @@ namespace PRG282_Project
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1023, 434);
-            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.gbxStudent);
             this.Controls.Add(this.gbxControl);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.gbxViewStudent);
             this.Name = "Main";
             this.Text = "Main";
             this.Load += new System.EventHandler(this.Main_Load);
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
+            this.gbxStudent.ResumeLayout(false);
+            this.gbxStudent.PerformLayout();
             this.gbxControl.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCourses)).EndInit();
@@ -530,7 +530,7 @@ namespace PRG282_Project
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox gbxStudent;
         private System.Windows.Forms.CheckBox cbxNewStudent;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Label label7;

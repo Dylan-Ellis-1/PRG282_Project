@@ -21,7 +21,9 @@ namespace PRG282_Project
         DataLayer.DataHandler handler = new DataLayer.DataHandler();
 
         BindingSource sSource = new BindingSource();
-        BindingSource cSource = new BindingSource();    
+        BindingSource cSource = new BindingSource();
+
+        string deleteCourse;
 
         private void button9_Click(object sender, EventArgs e)
         {
@@ -54,6 +56,12 @@ namespace PRG282_Project
         {
             Student student = new Student(tbxSNumber.Text, tbxName.Text, cmbGender.Text, tbxPhone.Text, tbxAddress.Text, tbxImgPath.Text, tbxDOB.Text);
             List<string> courses = new List<string>();
+
+            foreach (var course in clbCourses.CheckedItems)
+            {
+                courses.Add(course.ToString());
+            }
+
             string message = "";
 
             if (cbxNewStudent.Checked == true)
@@ -64,11 +72,13 @@ namespace PRG282_Project
             {
                 message = handler.updateStudent(student, courses);
             }
-            
+
             MessageBox.Show(message);
 
             sSource.DataSource = handler.getStudent();
             dgvStudent.DataSource = sSource;
+            cSource.DataSource = handler.populateCourse(tbxSNumber.Text);
+            dgvCourses.DataSource = cSource;
         }
 
         private void Main_Load(object sender, EventArgs e)
@@ -92,12 +102,34 @@ namespace PRG282_Project
 
         private void btnDelCourse_Click(object sender, EventArgs e)
         {
-            string course = "";
-            string message = handler.deleteCourseForStudent(course ,tbxSNumber.Text);
+            List<string> lCourses = new List<string>();
+
+            string message = handler.deleteCourseForStudent(deleteCourse, tbxSNumber.Text);
             MessageBox.Show(message);
 
             cSource.DataSource = handler.populateCourse(tbxSNumber.Text);
             dgvCourses.DataSource = cSource;
+
+            foreach (int i in clbCourses.CheckedIndices)
+            {
+                clbCourses.SetItemCheckState(i, CheckState.Unchecked);
+            }
+
+            if (dgvCourses.Rows.Count > 0)
+            {
+                for (int i = 0; i < dgvCourses.Rows.Count - 1; i++)
+                {
+                    lCourses.Add(dgvCourses.Rows[i].Cells[0].Value.ToString());
+                }
+            }
+
+            for (int count = 0; count < clbCourses.Items.Count; count++)
+            {
+                if (lCourses.Contains(clbCourses.Items[count].ToString()))
+                {
+                    clbCourses.SetItemChecked(count, true);
+                }
+            }
         }
 
         private void dgvStudent_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -119,6 +151,27 @@ namespace PRG282_Project
 
             cSource.DataSource = handler.populateCourse(tbxSNumber.Text);
             dgvCourses.DataSource = cSource;
+
+            foreach (int i in clbCourses.CheckedIndices)
+            {
+                clbCourses.SetItemCheckState(i, CheckState.Unchecked);
+            }
+
+            if (dgvCourses.Rows.Count > 0)
+            {
+                for (int i = 0; i < dgvCourses.Rows.Count - 1; i++)
+                {
+                    lCourses.Add(dgvCourses.Rows[i].Cells[0].Value.ToString());
+                }
+            }
+
+            for (int count = 0; count < clbCourses.Items.Count; count++)
+            {
+                if (lCourses.Contains(clbCourses.Items[count].ToString()))
+                {
+                    clbCourses.SetItemChecked(count, true);
+                }
+            }
 
             //pbxStudent.Image = Image.FromFile(tbxImgPath.Text);
         }
@@ -161,6 +214,16 @@ namespace PRG282_Project
         private void btnPrevS_Click(object sender, EventArgs e)
         {
             sSource.MovePrevious();
+        }
+
+        private void dgvCourses_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = this.dgvCourses.Rows[e.RowIndex];
+
+                deleteCourse = row.Cells["ModCode"].Value.ToString();
+            }
         }
     }
 }

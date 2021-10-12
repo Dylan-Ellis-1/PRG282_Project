@@ -30,7 +30,8 @@ namespace PRG282_Project
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.gbxCourse = new System.Windows.Forms.GroupBox();
+            this.dgvCourses = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
             this.cbxNewCourse = new System.Windows.Forms.CheckBox();
             this.btnBack = new System.Windows.Forms.Button();
@@ -45,52 +46,60 @@ namespace PRG282_Project
             this.tbxName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.tbxCourseID = new System.Windows.Forms.TextBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gbxSearch = new System.Windows.Forms.GroupBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.tbxSearch = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.dgvCourses = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.gbxCourse.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCourses)).BeginInit();
+            this.gbxSearch.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.panel1.Controls.Add(this.groupBox2);
-            this.panel1.Controls.Add(this.groupBox1);
+            this.panel1.Controls.Add(this.gbxCourse);
+            this.panel1.Controls.Add(this.gbxSearch);
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(501, 403);
             this.panel1.TabIndex = 2;
             // 
-            // groupBox2
+            // gbxCourse
             // 
-            this.groupBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.groupBox2.Controls.Add(this.dgvCourses);
-            this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.cbxNewCourse);
-            this.groupBox2.Controls.Add(this.btnBack);
-            this.groupBox2.Controls.Add(this.btnAddNewUser);
-            this.groupBox2.Controls.Add(this.btnEdit);
-            this.groupBox2.Controls.Add(this.btnDelete);
-            this.groupBox2.Controls.Add(this.lblLink);
-            this.groupBox2.Controls.Add(this.rtbDescription);
-            this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.tbxLink);
-            this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.tbxName);
-            this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.tbxCourseID);
-            this.groupBox2.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.groupBox2.Location = new System.Drawing.Point(3, 57);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(490, 329);
-            this.groupBox2.TabIndex = 2;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "groupBox2";
+            this.gbxCourse.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.gbxCourse.Controls.Add(this.dgvCourses);
+            this.gbxCourse.Controls.Add(this.label5);
+            this.gbxCourse.Controls.Add(this.cbxNewCourse);
+            this.gbxCourse.Controls.Add(this.btnBack);
+            this.gbxCourse.Controls.Add(this.btnAddNewUser);
+            this.gbxCourse.Controls.Add(this.btnEdit);
+            this.gbxCourse.Controls.Add(this.btnDelete);
+            this.gbxCourse.Controls.Add(this.lblLink);
+            this.gbxCourse.Controls.Add(this.rtbDescription);
+            this.gbxCourse.Controls.Add(this.label4);
+            this.gbxCourse.Controls.Add(this.tbxLink);
+            this.gbxCourse.Controls.Add(this.label3);
+            this.gbxCourse.Controls.Add(this.tbxName);
+            this.gbxCourse.Controls.Add(this.label2);
+            this.gbxCourse.Controls.Add(this.tbxCourseID);
+            this.gbxCourse.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.gbxCourse.Location = new System.Drawing.Point(3, 57);
+            this.gbxCourse.Name = "gbxCourse";
+            this.gbxCourse.Size = new System.Drawing.Size(490, 329);
+            this.gbxCourse.TabIndex = 2;
+            this.gbxCourse.TabStop = false;
+            this.gbxCourse.Text = "Courses";
+            // 
+            // dgvCourses
+            // 
+            this.dgvCourses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCourses.Location = new System.Drawing.Point(9, 19);
+            this.dgvCourses.Name = "dgvCourses";
+            this.dgvCourses.Size = new System.Drawing.Size(468, 128);
+            this.dgvCourses.TabIndex = 15;
+            this.dgvCourses.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCourses_CellClick);
             // 
             // label5
             // 
@@ -226,18 +235,18 @@ namespace PRG282_Project
             this.tbxCourseID.Size = new System.Drawing.Size(206, 20);
             this.tbxCourseID.TabIndex = 1;
             // 
-            // groupBox1
+            // gbxSearch
             // 
-            this.groupBox1.Controls.Add(this.btnSearch);
-            this.groupBox1.Controls.Add(this.tbxSearch);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.groupBox1.Location = new System.Drawing.Point(0, 0);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(490, 51);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
+            this.gbxSearch.Controls.Add(this.btnSearch);
+            this.gbxSearch.Controls.Add(this.tbxSearch);
+            this.gbxSearch.Controls.Add(this.label1);
+            this.gbxSearch.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.gbxSearch.Location = new System.Drawing.Point(0, 0);
+            this.gbxSearch.Name = "gbxSearch";
+            this.gbxSearch.Size = new System.Drawing.Size(490, 51);
+            this.gbxSearch.TabIndex = 0;
+            this.gbxSearch.TabStop = false;
+            this.gbxSearch.Text = "Search";
             // 
             // btnSearch
             // 
@@ -267,15 +276,6 @@ namespace PRG282_Project
             this.label1.TabIndex = 0;
             this.label1.Text = "Search by Course Name:";
             // 
-            // dgvCourses
-            // 
-            this.dgvCourses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCourses.Location = new System.Drawing.Point(9, 19);
-            this.dgvCourses.Name = "dgvCourses";
-            this.dgvCourses.Size = new System.Drawing.Size(468, 128);
-            this.dgvCourses.TabIndex = 15;
-            this.dgvCourses.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCourses_CellClick);
-            // 
             // Courses
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -284,14 +284,14 @@ namespace PRG282_Project
             this.ClientSize = new System.Drawing.Size(527, 428);
             this.Controls.Add(this.panel1);
             this.Name = "Courses";
-            this.Text = "Form1";
+            this.Text = "Courses";
             this.Load += new System.EventHandler(this.Courses_Load);
             this.panel1.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.gbxCourse.ResumeLayout(false);
+            this.gbxCourse.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCourses)).EndInit();
+            this.gbxSearch.ResumeLayout(false);
+            this.gbxSearch.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -299,7 +299,7 @@ namespace PRG282_Project
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox gbxCourse;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.CheckBox cbxNewCourse;
         private System.Windows.Forms.Button btnBack;
@@ -314,7 +314,7 @@ namespace PRG282_Project
         private System.Windows.Forms.TextBox tbxName;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tbxCourseID;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox gbxSearch;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.TextBox tbxSearch;
         private System.Windows.Forms.Label label1;
