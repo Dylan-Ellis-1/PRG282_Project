@@ -32,11 +32,29 @@ namespace PRG282_Project.DataLayer
             return studentData;
         }
 
+        public List<string> GetModCodes()
+        {
+            SqlConnection cn = new SqlConnection(con);
+
+            SqlDataAdapter adapter = new SqlDataAdapter("spGetCourses", con);
+
+            adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
+
+            DataTable studentData = new DataTable();
+
+            adapter.Fill(studentData);
+            List<string> CCodes = new List<string>();
+            for (int k = 0; k< studentData.Rows.Count- 1; k++)
+            {
+                CCodes.Add(studentData.Rows[k][0].ToString());
+            }
+            return CCodes;
+        }
         public DataTable getCourse()
         {
             string query = "SELECT * FROM Courses";
 
-            SqlDataAdapter adapter = new SqlDataAdapter(query, con);
+            SqlDataAdapter adapter = new SqlDataAdapter("spGetCoursesValues", con);
 
             DataTable courseData = new DataTable();
 

@@ -54,11 +54,11 @@ namespace PRG282_Project
             this.btnDelCourse = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dgvCourses = new System.Windows.Forms.DataGridView();
             this.btnNextC = new System.Windows.Forms.Button();
             this.btnLastC = new System.Windows.Forms.Button();
             this.btnPrevC = new System.Windows.Forms.Button();
             this.btnFirstC = new System.Windows.Forms.Button();
-            this.lvwCourses = new System.Windows.Forms.ListView();
             this.gbxViewStudent = new System.Windows.Forms.GroupBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.tbxSearch = new System.Windows.Forms.TextBox();
@@ -72,6 +72,7 @@ namespace PRG282_Project
             this.groupBox3.SuspendLayout();
             this.gbxControl.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCourses)).BeginInit();
             this.gbxViewStudent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxStudent)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudent)).BeginInit();
@@ -174,6 +175,7 @@ namespace PRG282_Project
             // 
             // dtpDOB
             // 
+            this.dtpDOB.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpDOB.Location = new System.Drawing.Point(13, 136);
             this.dtpDOB.Name = "dtpDOB";
             this.dtpDOB.Size = new System.Drawing.Size(205, 20);
@@ -326,11 +328,11 @@ namespace PRG282_Project
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.groupBox1.Controls.Add(this.dgvCourses);
             this.groupBox1.Controls.Add(this.btnNextC);
             this.groupBox1.Controls.Add(this.btnLastC);
             this.groupBox1.Controls.Add(this.btnPrevC);
             this.groupBox1.Controls.Add(this.btnFirstC);
-            this.groupBox1.Controls.Add(this.lvwCourses);
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.groupBox1.Location = new System.Drawing.Point(12, 260);
             this.groupBox1.Name = "groupBox1";
@@ -338,6 +340,14 @@ namespace PRG282_Project
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Courses by Student";
+            // 
+            // dgvCourses
+            // 
+            this.dgvCourses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCourses.Location = new System.Drawing.Point(16, 19);
+            this.dgvCourses.Name = "dgvCourses";
+            this.dgvCourses.Size = new System.Drawing.Size(367, 111);
+            this.dgvCourses.TabIndex = 7;
             // 
             // btnNextC
             // 
@@ -382,16 +392,6 @@ namespace PRG282_Project
             this.btnFirstC.Text = "<<";
             this.btnFirstC.UseVisualStyleBackColor = false;
             this.btnFirstC.Click += new System.EventHandler(this.button10_Click);
-            // 
-            // lvwCourses
-            // 
-            this.lvwCourses.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(100)))));
-            this.lvwCourses.HideSelection = false;
-            this.lvwCourses.Location = new System.Drawing.Point(6, 19);
-            this.lvwCourses.Name = "lvwCourses";
-            this.lvwCourses.Size = new System.Drawing.Size(387, 112);
-            this.lvwCourses.TabIndex = 2;
-            this.lvwCourses.UseCompatibleStateImageBehavior = false;
             // 
             // gbxViewStudent
             // 
@@ -500,6 +500,7 @@ namespace PRG282_Project
             this.dgvStudent.Name = "dgvStudent";
             this.dgvStudent.Size = new System.Drawing.Size(554, 163);
             this.dgvStudent.TabIndex = 0;
+            this.dgvStudent.SelectionChanged += new System.EventHandler(this.dgvStudent_SelectionChanged);
             // 
             // Main
             // 
@@ -513,10 +514,12 @@ namespace PRG282_Project
             this.Controls.Add(this.gbxViewStudent);
             this.Name = "Main";
             this.Text = "Main";
+            this.Load += new System.EventHandler(this.Main_Load);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.gbxControl.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCourses)).EndInit();
             this.gbxViewStudent.ResumeLayout(false);
             this.gbxViewStudent.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxStudent)).EndInit();
@@ -554,7 +557,6 @@ namespace PRG282_Project
         private System.Windows.Forms.Button btnLastC;
         private System.Windows.Forms.Button btnPrevC;
         private System.Windows.Forms.Button btnFirstC;
-        private System.Windows.Forms.ListView lvwCourses;
         private System.Windows.Forms.GroupBox gbxViewStudent;
         private System.Windows.Forms.Button btnNextS;
         private System.Windows.Forms.Button btnPrevS;
@@ -567,5 +569,6 @@ namespace PRG282_Project
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.TextBox tbxSearch;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.DataGridView dgvCourses;
     }
 }

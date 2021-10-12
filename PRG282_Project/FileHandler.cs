@@ -40,7 +40,6 @@ namespace PRG282_Project
             }
             return UserDetails;
         }
-
         public int AddUser(string NUserName, string NPassword, string CPassword)
         {
             int ErrorT = 0;
@@ -93,7 +92,6 @@ namespace PRG282_Project
             }
             return ErrorT;
         }
-
         public int LoginF(string NUserName, string NPassword)
         {
             int ErrorN = 0;
