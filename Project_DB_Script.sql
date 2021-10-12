@@ -271,3 +271,10 @@ BEGIN
 	DELETE FROM StudentCourses WHERE StudentNumber = @StudnetNumber;
 END
 GO
+
+CREATE PROC spGetModCodes
+AS
+BEGIN
+	SELECT ModCode FROM Courses;
+END
+GO
