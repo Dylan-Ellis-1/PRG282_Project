@@ -102,6 +102,7 @@ Insert Into StudentCourses(StudentNumber,ModCode) VALUES ('50001', 'WPR281');
 Insert Into StudentCourses(StudentNumber,ModCode) VALUES ('50005', 'DBD281');
 Insert Into StudentCourses(StudentNumber,ModCode) VALUES ('50011', 'PRG281');
 Insert Into StudentCourses(StudentNumber,ModCode) VALUES ('50009', 'WPR281');
+GO
 
 CREATE PROC spGetStudents
 AS
