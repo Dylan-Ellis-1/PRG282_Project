@@ -19,6 +19,8 @@ namespace PRG282_Project.DataLayer
 
         SqlConnection cn = new SqlConnection(con);
         
+
+        //Get Full Tables
         public DataTable getStudent()
         {
             string query = "SELECT * FROM Students";
@@ -31,38 +33,40 @@ namespace PRG282_Project.DataLayer
 
             return studentData;
         }
-
-        public List<string> GetModCodes()
+        public DataTable getCourse()
         {
             SqlConnection cn = new SqlConnection(con);
 
-            SqlDataAdapter adapter = new SqlDataAdapter("spGetCourses", con);
+            SqlDataAdapter adapter = new SqlDataAdapter("spGetCoursesValues", con);
 
             adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
 
             DataTable studentData = new DataTable();
 
             adapter.Fill(studentData);
-            List<string> CCodes = new List<string>();
-            for (int k = 0; k< studentData.Rows.Count- 1; k++)
-            {
-                CCodes.Add(studentData.Rows[k][0].ToString());
-            }
-            return CCodes;
-        }
-        public DataTable getCourse()
-        {
-            string query = "SELECT * FROM Courses";
 
-            SqlDataAdapter adapter = new SqlDataAdapter("spGetCoursesValues", con);
+            return studentData;
+        }
+
+        //Get List for CheckedListBox
+        public List<string> GetModCodes(string StuNum)
+        {
+            string query = "SELECT  FROM StudentCourses WHERE StudentID = '" + StuNum + "'";
+
+            SqlDataAdapter adapter = new SqlDataAdapter(query, con);
 
             DataTable courseData = new DataTable();
 
             adapter.Fill(courseData);
-
-            return courseData;
+            List<string> CCodes = new List<string>();
+            for (int k = 0; k< courseData.Rows.Count- 1; k++)
+            {
+                CCodes.Add(courseData.Rows[k][0].ToString());
+            }
+            return CCodes;
         }
 
+        //Update
         public string updateStudent(Student student)
         {
             try
@@ -121,6 +125,8 @@ namespace PRG282_Project.DataLayer
             }
         }
 
+
+        //Delete
         public string deleteStudent(string id)
         {
             try
@@ -183,6 +189,7 @@ namespace PRG282_Project.DataLayer
             
         }
 
+        //Search
         public DataTable searchStudent(string id)
         {
             string query = "SELECT * FROM Students WHERE StudentNumber = '" + id + "'";
@@ -208,6 +215,7 @@ namespace PRG282_Project.DataLayer
 
             return courdeData;
         }
+
 
         public DataTable populateCourse(string id)
         {
