@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PRG282_Project.DataLayer;
+using PRG282_Project.BussinessLogicLayer;
 
 namespace PRG282_Project
 {
@@ -19,11 +20,8 @@ namespace PRG282_Project
         }
 
         FileHandler file = new FileHandler();
-
-        private void Login_Load(object sender, EventArgs e)
-        {
-            
-        }
+        BLL logicLayer = new BLL();
+        
 
         private void cbxNUser_CheckedChanged(object sender, EventArgs e)
         {
@@ -50,8 +48,17 @@ namespace PRG282_Project
         {
             if (cbxNUser.Checked == true)
             {
-                int number = file.AddUser(tbxUsername.Text, tbxPassword.Text, tbxConPassword.Text);
+                int number;
 
+                if (logicLayer.newUserValidation(tbxUsername.Text, tbxPassword.Text, tbxConPassword.Text) == true)
+                {
+                     number = file.AddUser(tbxUsername.Text, tbxPassword.Text, tbxConPassword.Text);
+                }
+                else
+                {
+                    number = 10;
+                }
+                
                 switch(number)
                 {
                     case 1:
@@ -87,20 +94,31 @@ namespace PRG282_Project
                         {
                             MessageBox.Show("User not found.\nMake sure Username and Password is correct or create a new User.");
                         }
-                        break;   
+                        break;
+
+                    case 10:
+                        MessageBox.Show("Make sure you enter values in all the fields.");
+                        break;
                 }
             }
             else
             {
-                if (file.CheckUser(tbxUsername.Text, tbxPassword.Text) == true)
+                if (logicLayer.LogInValidation(tbxUsername.Text, tbxPassword.Text) == true)
                 {
-                    Main frmMain = new Main();
+                    if (file.CheckUser(tbxUsername.Text, tbxPassword.Text) == true)
+                    {
+                        Main frmMain = new Main();
 
-                    frmMain.Show();
+                        frmMain.Show();  
+                    }
+                    else
+                    {
+                        MessageBox.Show("User not found.\nMake sure Username and Password is correct or create a new User.");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("User not found.\nMake sure Username and Password is correct or create a new User.");
+                    MessageBox.Show("Make sure you enter values in all the fields.");
                 }
             }
         }

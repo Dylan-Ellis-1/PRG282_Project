@@ -278,3 +278,8 @@ BEGIN
 	SELECT ModCode FROM Courses;
 END
 GO
+
+BACKUP DATABASE Project 
+TO DISK = 'C:\Project_Backup.BAK'
+WITH DESCRIPTION = 'Full backup for the KMG database', STATS
+GO

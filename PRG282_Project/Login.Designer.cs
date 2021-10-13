@@ -160,7 +160,6 @@ namespace PRG282_Project
             this.Controls.Add(this.gbxLogin);
             this.Name = "Login";
             this.Text = "Login Form";
-            this.Load += new System.EventHandler(this.Login_Load);
             this.gbxLogin.ResumeLayout(false);
             this.gbxLogin.PerformLayout();
             this.ResumeLayout(false);

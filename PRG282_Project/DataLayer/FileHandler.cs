@@ -13,6 +13,41 @@ namespace PRG282_Project.DataLayer
         {
         }
 
+        // Method used to get an image from the comuter and place it in the Programs bin folder
+        public string AddPicture(string FilePath)
+        {
+            string[] Npath = FilePath.Split(Path.DirectorySeparatorChar);
+            string Lpath = Npath[Npath.Length - 1];
+
+            //Create a unique Name for file
+            if (File.Exists(Lpath))
+            {
+                bool Found = true;
+                int k = 1;
+                while (Found == true)
+                {
+                    string temp = Lpath;
+                    string[] path = temp.Split('.');
+                    path[0] = path[0] + k.ToString();
+                    temp = path[0] + path[1];
+                    if (File.Exists(temp))
+                    {
+                        k++;
+                    }
+                    else
+                    {
+                        Lpath = temp;
+                        Found = false;
+                    }
+                }
+            }
+
+            File.Copy(FilePath, @"Images\" + Lpath);
+
+            return Lpath;
+        }
+
+        // Method to check if user login details are correct
         public Boolean CheckUser(string username, string password)
         {
             List<string> data = new List<string>();
@@ -33,6 +68,7 @@ namespace PRG282_Project.DataLayer
             return found;
         }
 
+        // Method to add a new user to the login textfile
         public int AddUser(string username, string password, string confirmPass)
         {
             int errorNum = 0;

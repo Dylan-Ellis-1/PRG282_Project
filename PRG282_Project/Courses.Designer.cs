@@ -99,7 +99,7 @@ namespace PRG282_Project
             this.dgvCourses.Name = "dgvCourses";
             this.dgvCourses.Size = new System.Drawing.Size(468, 128);
             this.dgvCourses.TabIndex = 15;
-            this.dgvCourses.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCourses_CellClick);
+            this.dgvCourses.SelectionChanged += new System.EventHandler(this.dgvCourses_SelectionChanged);
             // 
             // label5
             // 
@@ -140,7 +140,7 @@ namespace PRG282_Project
             this.btnAddNewUser.Name = "btnAddNewUser";
             this.btnAddNewUser.Size = new System.Drawing.Size(100, 31);
             this.btnAddNewUser.TabIndex = 11;
-            this.btnAddNewUser.Text = "Add New User";
+            this.btnAddNewUser.Text = "Add New Course";
             this.btnAddNewUser.UseVisualStyleBackColor = false;
             this.btnAddNewUser.Visible = false;
             this.btnAddNewUser.Click += new System.EventHandler(this.btnAddNewUser_Click);
@@ -272,9 +272,9 @@ namespace PRG282_Project
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(6, 19);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(125, 13);
+            this.label1.Size = new System.Drawing.Size(122, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Search by Course Name:";
+            this.label1.Text = "Search by Course Code:";
             // 
             // Courses
             // 

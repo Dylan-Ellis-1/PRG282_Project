@@ -40,11 +40,11 @@ namespace PRG282_Project.DataLayer
 
             adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
 
-            DataTable studentData = new DataTable();
+            DataTable courseData = new DataTable();
 
-            adapter.Fill(studentData);
+            adapter.Fill(courseData);
 
-            return studentData;
+            return courseData;
         }
 
         public List<string> getModCodes()
