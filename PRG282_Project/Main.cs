@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 
 namespace PRG282_Project
@@ -24,6 +25,53 @@ namespace PRG282_Project
         BindingSource cSource = new BindingSource();
 
         string deleteCourse;
+
+        public void fillComponents()
+        {
+            List<string> lCourses = new List<string>();
+
+            if (sSource.Position >= 0)
+            {
+                DataGridViewRow row = this.dgvStudent.Rows[sSource.Position];
+
+                tbxSNumber.Text = row.Cells["StudentNumber"].Value.ToString();
+                tbxName.Text = row.Cells["NameSurname"].Value.ToString();
+                cmbGender.Text = row.Cells["Gender"].Value.ToString();
+                string date = row.Cells["StudentDOB"].Value.ToString();
+                string[] splits = date.Split('-');
+                //MessageBox.Show(splits[1] + "/" + splits[0] + "/" + splits[2]);
+                dtpDOB.Value = DateTime.Parse(splits[1] + "/" + splits[0] + "/" + splits[2]);
+                tbxPhone.Text = row.Cells["Phone"].Value.ToString();
+                tbxAddress.Text = row.Cells["Address_"].Value.ToString();
+                tbxImgPath.Text = row.Cells["ImgPath"].Value.ToString();
+
+                pbxStudent.Image = Image.FromFile(@"Images\" + tbxImgPath.Text);
+            }
+
+            cSource.DataSource = handler.populateCourse(tbxSNumber.Text);
+            dgvCourses.DataSource = cSource;
+
+            foreach (int i in clbCourses.CheckedIndices)
+            {
+                clbCourses.SetItemCheckState(i, CheckState.Unchecked);
+            }
+
+            if (dgvCourses.Rows.Count > 0)
+            {
+                for (int i = 0; i < dgvCourses.Rows.Count - 1; i++)
+                {
+                    lCourses.Add(dgvCourses.Rows[i].Cells[0].Value.ToString());
+                }
+            }
+
+            for (int count = 0; count < clbCourses.Items.Count; count++)
+            {
+                if (lCourses.Contains(clbCourses.Items[count].ToString()))
+                {
+                    clbCourses.SetItemChecked(count, true);
+                }
+            }
+        }
 
         private void button9_Click(object sender, EventArgs e)
         {
@@ -54,10 +102,19 @@ namespace PRG282_Project
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            string date = dtpDOB.Value.ToString();
+            string date = dtpDOB.Value.ToShortDateString();
             string[] dateS = date.Split('/');
             date = dateS[1]+"-" + dateS[0]+"-" + dateS[2];
-            Student student = new Student(tbxSNumber.Text, tbxName.Text, cmbGender.Text, tbxPhone.Text, tbxAddress.Text, tbxImgPath.Text, date);
+
+            string filePath = tbxImgPath.Text;
+
+            if (File.Exists(@"Images\" + filePath) == false)
+            {
+                MessageBox.Show(@"Image was not found. Make sure the student image is plased in the bin folder of the project in Debug\Images");
+                filePath = "default.png";
+            }
+
+            Student student = new Student(tbxSNumber.Text, tbxName.Text, cmbGender.Text, tbxPhone.Text, tbxAddress.Text, filePath, date);
             List<string> courses = new List<string>();
 
             foreach (var course in clbCourses.CheckedItems)
@@ -135,53 +192,6 @@ namespace PRG282_Project
             }
         }
 
-        private void dgvStudent_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            List<string> lCourses = new List<string>();
-
-            if (e.RowIndex >= 0)
-            {
-                DataGridViewRow row = this.dgvStudent.Rows[e.RowIndex];
-
-                tbxSNumber.Text = row.Cells["StudentNumber"].Value.ToString();
-                tbxName.Text = row.Cells["NameSurname"].Value.ToString();
-                cmbGender.Text = row.Cells["Gender"].Value.ToString();
-                string date = row.Cells["DOB"].Value.ToString();
-                string[] splits = date.Split('-');
-
-                dtpDOB.Value = DateTime.Parse(splits[1]+"/"+splits[0]+"/"+splits[2]);
-                tbxPhone.Text = row.Cells["Phone"].Value.ToString();
-                tbxAddress.Text = row.Cells["Address_"].Value.ToString();
-                tbxImgPath.Text = row.Cells["ImgPath"].Value.ToString();
-            }
-
-            cSource.DataSource = handler.populateCourse(tbxSNumber.Text);
-            dgvCourses.DataSource = cSource;
-
-            foreach (int i in clbCourses.CheckedIndices)
-            {
-                clbCourses.SetItemCheckState(i, CheckState.Unchecked);
-            }
-
-            if (dgvCourses.Rows.Count > 0)
-            {
-                for (int i = 0; i < dgvCourses.Rows.Count - 1; i++)
-                {
-                    lCourses.Add(dgvCourses.Rows[i].Cells[0].Value.ToString());
-                }
-            }
-
-            for (int count = 0; count < clbCourses.Items.Count; count++)
-            {
-                if (lCourses.Contains(clbCourses.Items[count].ToString()))
-                {
-                    clbCourses.SetItemChecked(count, true);
-                }
-            }
-
-            //pbxStudent.Image = Image.FromFile(tbxImgPath.Text);
-        }
-
         private void btnFirstS_Click(object sender, EventArgs e)
         {
             sSource.MoveFirst();
@@ -230,6 +240,11 @@ namespace PRG282_Project
 
                 deleteCourse = row.Cells["ModCode"].Value.ToString();
             }
+        }
+
+        private void dgvStudent_SelectionChanged(object sender, EventArgs e)
+        {
+            fillComponents();
         }
     }
 }

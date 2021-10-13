@@ -30,12 +30,14 @@ namespace PRG282_Project
         private void InitializeComponent()
         {
             this.gbxStudent = new System.Windows.Forms.GroupBox();
+            this.dtpDOB = new System.Windows.Forms.DateTimePicker();
             this.label8 = new System.Windows.Forms.Label();
             this.tbxAddress = new System.Windows.Forms.TextBox();
             this.cbxNewStudent = new System.Windows.Forms.CheckBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.clbCourses = new System.Windows.Forms.CheckedListBox();
+            this.cmbGender = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -67,8 +69,6 @@ namespace PRG282_Project
             this.btnFirstS = new System.Windows.Forms.Button();
             this.pbxStudent = new System.Windows.Forms.PictureBox();
             this.dgvStudent = new System.Windows.Forms.DataGridView();
-            this.cmbGender = new System.Windows.Forms.ComboBox();
-            this.dtpDOB = new System.Windows.Forms.DateTimePicker();
             this.gbxStudent.SuspendLayout();
             this.gbxControl.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -106,6 +106,15 @@ namespace PRG282_Project
             this.gbxStudent.TabIndex = 8;
             this.gbxStudent.TabStop = false;
             this.gbxStudent.Text = "Student Data";
+            // 
+            // dtpDOB
+            // 
+            this.dtpDOB.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDOB.Location = new System.Drawing.Point(117, 120);
+            this.dtpDOB.Name = "dtpDOB";
+            this.dtpDOB.Size = new System.Drawing.Size(101, 20);
+            this.dtpDOB.TabIndex = 20;
+            this.dtpDOB.Value = new System.DateTime(2021, 10, 13, 0, 0, 0, 0);
             // 
             // label8
             // 
@@ -160,6 +169,17 @@ namespace PRG282_Project
             this.clbCourses.Name = "clbCourses";
             this.clbCourses.Size = new System.Drawing.Size(104, 64);
             this.clbCourses.TabIndex = 14;
+            // 
+            // cmbGender
+            // 
+            this.cmbGender.FormattingEnabled = true;
+            this.cmbGender.Items.AddRange(new object[] {
+            "Male",
+            "Female"});
+            this.cmbGender.Location = new System.Drawing.Point(117, 146);
+            this.cmbGender.Name = "cmbGender";
+            this.cmbGender.Size = new System.Drawing.Size(100, 21);
+            this.cmbGender.TabIndex = 13;
             // 
             // label6
             // 
@@ -468,9 +488,10 @@ namespace PRG282_Project
             // 
             // pbxStudent
             // 
-            this.pbxStudent.Location = new System.Drawing.Point(566, 39);
+            this.pbxStudent.Location = new System.Drawing.Point(566, 11);
             this.pbxStudent.Name = "pbxStudent";
-            this.pbxStudent.Size = new System.Drawing.Size(204, 197);
+            this.pbxStudent.Size = new System.Drawing.Size(204, 225);
+            this.pbxStudent.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbxStudent.TabIndex = 1;
             this.pbxStudent.TabStop = false;
             // 
@@ -482,26 +503,7 @@ namespace PRG282_Project
             this.dgvStudent.Name = "dgvStudent";
             this.dgvStudent.Size = new System.Drawing.Size(554, 163);
             this.dgvStudent.TabIndex = 0;
-            this.dgvStudent.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvStudent_CellClick);
-            // 
-            // cmbGender
-            // 
-            this.cmbGender.FormattingEnabled = true;
-            this.cmbGender.Items.AddRange(new object[] {
-            "Male",
-            "Female"});
-            this.cmbGender.Location = new System.Drawing.Point(117, 146);
-            this.cmbGender.Name = "cmbGender";
-            this.cmbGender.Size = new System.Drawing.Size(100, 21);
-            this.cmbGender.TabIndex = 13;
-            // 
-            // dtpDOB
-            // 
-            this.dtpDOB.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDOB.Location = new System.Drawing.Point(117, 120);
-            this.dtpDOB.Name = "dtpDOB";
-            this.dtpDOB.Size = new System.Drawing.Size(101, 20);
-            this.dtpDOB.TabIndex = 20;
+            this.dgvStudent.SelectionChanged += new System.EventHandler(this.dgvStudent_SelectionChanged);
             // 
             // Main
             // 
