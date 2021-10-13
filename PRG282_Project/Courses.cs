@@ -102,6 +102,10 @@ namespace PRG282_Project
         {
             if (cbxNewCourse.Checked)
             {
+                tbxCourseID.Clear();
+                tbxLink.Clear();
+                tbxName.Clear();
+                rtbDescription.Clear();
                 btnAddNewUser.Enabled = true;
                 btnAddNewUser.Visible = true;
             }
@@ -109,6 +113,8 @@ namespace PRG282_Project
             {
                 btnAddNewUser.Enabled = false;
                 btnAddNewUser.Visible = false;
+
+              
             }
         }
     }
