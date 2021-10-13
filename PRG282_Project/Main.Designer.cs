@@ -30,14 +30,12 @@ namespace PRG282_Project
         private void InitializeComponent()
         {
             this.gbxStudent = new System.Windows.Forms.GroupBox();
-            this.tbxDOB = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.tbxAddress = new System.Windows.Forms.TextBox();
             this.cbxNewStudent = new System.Windows.Forms.CheckBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.clbCourses = new System.Windows.Forms.CheckedListBox();
-            this.cmbGender = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -69,6 +67,8 @@ namespace PRG282_Project
             this.btnFirstS = new System.Windows.Forms.Button();
             this.pbxStudent = new System.Windows.Forms.PictureBox();
             this.dgvStudent = new System.Windows.Forms.DataGridView();
+            this.cmbGender = new System.Windows.Forms.ComboBox();
+            this.dtpDOB = new System.Windows.Forms.DateTimePicker();
             this.gbxStudent.SuspendLayout();
             this.gbxControl.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -81,7 +81,7 @@ namespace PRG282_Project
             // gbxStudent
             // 
             this.gbxStudent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.gbxStudent.Controls.Add(this.tbxDOB);
+            this.gbxStudent.Controls.Add(this.dtpDOB);
             this.gbxStudent.Controls.Add(this.label8);
             this.gbxStudent.Controls.Add(this.tbxAddress);
             this.gbxStudent.Controls.Add(this.cbxNewStudent);
@@ -106,13 +106,6 @@ namespace PRG282_Project
             this.gbxStudent.TabIndex = 8;
             this.gbxStudent.TabStop = false;
             this.gbxStudent.Text = "Student Data";
-            // 
-            // tbxDOB
-            // 
-            this.tbxDOB.Location = new System.Drawing.Point(118, 120);
-            this.tbxDOB.Name = "tbxDOB";
-            this.tbxDOB.Size = new System.Drawing.Size(100, 20);
-            this.tbxDOB.TabIndex = 20;
             // 
             // label8
             // 
@@ -167,17 +160,6 @@ namespace PRG282_Project
             this.clbCourses.Name = "clbCourses";
             this.clbCourses.Size = new System.Drawing.Size(104, 64);
             this.clbCourses.TabIndex = 14;
-            // 
-            // cmbGender
-            // 
-            this.cmbGender.FormattingEnabled = true;
-            this.cmbGender.Items.AddRange(new object[] {
-            "Male",
-            "Female"});
-            this.cmbGender.Location = new System.Drawing.Point(117, 146);
-            this.cmbGender.Name = "cmbGender";
-            this.cmbGender.Size = new System.Drawing.Size(100, 21);
-            this.cmbGender.TabIndex = 13;
             // 
             // label6
             // 
@@ -502,6 +484,25 @@ namespace PRG282_Project
             this.dgvStudent.TabIndex = 0;
             this.dgvStudent.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvStudent_CellClick);
             // 
+            // cmbGender
+            // 
+            this.cmbGender.FormattingEnabled = true;
+            this.cmbGender.Items.AddRange(new object[] {
+            "Male",
+            "Female"});
+            this.cmbGender.Location = new System.Drawing.Point(117, 146);
+            this.cmbGender.Name = "cmbGender";
+            this.cmbGender.Size = new System.Drawing.Size(100, 21);
+            this.cmbGender.TabIndex = 13;
+            // 
+            // dtpDOB
+            // 
+            this.dtpDOB.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDOB.Location = new System.Drawing.Point(117, 120);
+            this.dtpDOB.Name = "dtpDOB";
+            this.dtpDOB.Size = new System.Drawing.Size(101, 20);
+            this.dtpDOB.TabIndex = 20;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -535,7 +536,6 @@ namespace PRG282_Project
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.CheckedListBox clbCourses;
-        private System.Windows.Forms.ComboBox cmbGender;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
@@ -569,6 +569,7 @@ namespace PRG282_Project
         private System.Windows.Forms.TextBox tbxSearch;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.DataGridView dgvCourses;
-        private System.Windows.Forms.TextBox tbxDOB;
+        private System.Windows.Forms.ComboBox cmbGender;
+        private System.Windows.Forms.DateTimePicker dtpDOB;
     }
 }

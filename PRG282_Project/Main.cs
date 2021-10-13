@@ -54,7 +54,10 @@ namespace PRG282_Project
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            Student student = new Student(tbxSNumber.Text, tbxName.Text, cmbGender.Text, tbxPhone.Text, tbxAddress.Text, tbxImgPath.Text, tbxDOB.Text);
+            string date = dtpDOB.Value.ToString();
+            string[] dateS = date.Split('/');
+            date = dateS[1]+"-" + dateS[0]+"-" + dateS[2];
+            Student student = new Student(tbxSNumber.Text, tbxName.Text, cmbGender.Text, tbxPhone.Text, tbxAddress.Text, tbxImgPath.Text, date);
             List<string> courses = new List<string>();
 
             foreach (var course in clbCourses.CheckedItems)
@@ -143,7 +146,10 @@ namespace PRG282_Project
                 tbxSNumber.Text = row.Cells["StudentNumber"].Value.ToString();
                 tbxName.Text = row.Cells["NameSurname"].Value.ToString();
                 cmbGender.Text = row.Cells["Gender"].Value.ToString();
-                tbxDOB.Text = row.Cells["StudentDOB"].Value.ToString();
+                string date = row.Cells["DOB"].Value.ToString();
+                string[] splits = date.Split('-');
+
+                dtpDOB.Value = DateTime.Parse(splits[1]+"/"+splits[0]+"/"+splits[2]);
                 tbxPhone.Text = row.Cells["Phone"].Value.ToString();
                 tbxAddress.Text = row.Cells["Address_"].Value.ToString();
                 tbxImgPath.Text = row.Cells["ImgPath"].Value.ToString();
