@@ -141,6 +141,7 @@ namespace PRG282_Project
             this.cbxNewStudent.TabIndex = 17;
             this.cbxNewStudent.Text = "New Student";
             this.cbxNewStudent.UseVisualStyleBackColor = true;
+            this.cbxNewStudent.CheckedChanged += new System.EventHandler(this.cbxNewStudent_CheckedChanged);
             // 
             // btnSave
             // 

@@ -79,18 +79,15 @@ namespace PRG282_Project
 
             frm.Show();
         }
-
         private void button6_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-        
         private void btnSearch_Click(object sender, EventArgs e)
         {
             sSource.DataSource = handler.searchStudent(tbxSearch.Text);
             dgvStudent.DataSource = sSource;
         }
-
         private void btnDelStudent_Click(object sender, EventArgs e)
         {
             string message = handler.deleteStudent(tbxSNumber.Text);
@@ -99,7 +96,6 @@ namespace PRG282_Project
             sSource.DataSource = handler.getStudent();
             dgvStudent.DataSource = sSource;
         }
-
         private void btnSave_Click(object sender, EventArgs e)
         {
             string date = dtpDOB.Value.ToShortDateString();
@@ -245,6 +241,38 @@ namespace PRG282_Project
         private void dgvStudent_SelectionChanged(object sender, EventArgs e)
         {
             fillComponents();
+        }
+
+        private void cbxNewStudent_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbxNewStudent.Checked == true)
+            {
+                tbxSNumber.Clear();
+                tbxPhone.Clear();
+                tbxName.Clear();
+                tbxImgPath.Clear();
+                tbxAddress.Clear();
+                cmbGender.SelectedIndex = -1;
+                dtpDOB.Value = DateTime.Parse("01/01/2000");
+            }
+            if (cbxNewStudent.Checked == false)
+            {
+                if (sSource.Position>=0)
+                {
+                    DataGridViewRow row = this.dgvStudent.Rows[sSource.Position];
+
+                    tbxSNumber.Text = row.Cells["StudentNumber"].Value.ToString();
+                    tbxName.Text = row.Cells["NameSurname"].Value.ToString();
+                    cmbGender.Text = row.Cells["Gender"].Value.ToString();
+                    string date = row.Cells["DOB"].Value.ToString();
+                    string[] splits = date.Split('-');
+
+                    dtpDOB.Value = DateTime.Parse(splits[1] + "/" + splits[0] + "/" + splits[2]);
+                    tbxPhone.Text = row.Cells["Phone"].Value.ToString();
+                    tbxAddress.Text = row.Cells["Address_"].Value.ToString();
+                    tbxImgPath.Text = row.Cells["ImgPath"].Value.ToString(); 
+                } 
+            }
         }
     }
 }
