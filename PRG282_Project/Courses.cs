@@ -19,12 +19,13 @@ namespace PRG282_Project
         }
 
         DataHandler handler = new DataHandler();
+        BindingSource Source = new BindingSource();
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
             string searched = tbxSearch.Text;
 
-            dgvCourses.DataSource = handler.searchCourse(searched);
+            Source.DataSource = handler.searchCourse(searched);
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -34,7 +35,7 @@ namespace PRG282_Project
             string message = handler.deleteCourse(courseId);
             MessageBox.Show(message);
 
-            dgvCourses.DataSource = handler.getCourse();
+            Source.DataSource = handler.getCourse();
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
@@ -49,7 +50,7 @@ namespace PRG282_Project
             string message = handler.updateCourse(course);
             MessageBox.Show(message);
 
-            dgvCourses.DataSource = handler.getCourse();
+            Source.DataSource = handler.getCourse();
         }
 
         private void btnAddNewUser_Click(object sender, EventArgs e)
@@ -64,7 +65,7 @@ namespace PRG282_Project
             string message = handler.addCourse(course);
             MessageBox.Show(message);
 
-            dgvCourses.DataSource = handler.getCourse();
+            Source.DataSource = handler.getCourse();
 
             cbxNewCourse.Checked = false;
         }
@@ -77,14 +78,14 @@ namespace PRG282_Project
         private void Courses_Load(object sender, EventArgs e)
         {
             this.dgvCourses.DefaultCellStyle.ForeColor = Color.Black;
-            dgvCourses.DataSource = handler.getCourse();
+            Source.DataSource = handler.getCourse();
         }
 
         private void dgvCourses_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
+            if (Source.Position >= 0)
             {
-                DataGridViewRow row = this.dgvCourses.Rows[e.RowIndex];
+                DataGridViewRow row = this.dgvCourses.Rows[Source.Position];
 
                 tbxCourseID.Text = row.Cells["ModCode"].Value.ToString();
                 tbxName.Text = row.Cells["ModName"].Value.ToString();
@@ -113,8 +114,16 @@ namespace PRG282_Project
             {
                 btnAddNewUser.Enabled = false;
                 btnAddNewUser.Visible = false;
+                if (Source.Position >= 0)
+                {
+                    DataGridViewRow row = this.dgvCourses.Rows[Source.Position];
 
-              
+                    tbxCourseID.Text = row.Cells["ModCode"].Value.ToString();
+                    tbxName.Text = row.Cells["ModName"].Value.ToString();
+                    tbxLink.Text = row.Cells["Link"].Value.ToString();
+                    rtbDescription.Text = row.Cells["ModDesc"].Value.ToString();
+                }
+
             }
         }
     }

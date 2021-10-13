@@ -242,8 +242,7 @@ namespace PRG282_Project
             }
             if (cbxNewStudent.Checked == false)
             {
-                /*
-                if (sSource.Position>0)
+                if (sSource.Position>=0)
                 {
                     DataGridViewRow row = this.dgvStudent.Rows[sSource.Position];
 
@@ -257,7 +256,7 @@ namespace PRG282_Project
                     tbxPhone.Text = row.Cells["Phone"].Value.ToString();
                     tbxAddress.Text = row.Cells["Address_"].Value.ToString();
                     tbxImgPath.Text = row.Cells["ImgPath"].Value.ToString(); 
-                } */
+                } 
             }
         }
     }
