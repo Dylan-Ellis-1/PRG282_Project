@@ -130,6 +130,7 @@ namespace PRG282_Project
                 string message = handler.addCourse(course);
                 MessageBox.Show(message);
 
+                dgvCourses.CurrentCell = this.dgvCourses.FirstDisplayedCell;
                 populateDgv();
                 fillComponents();
 
